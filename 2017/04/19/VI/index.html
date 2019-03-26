@@ -1,0 +1,727 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="VI, 苝極鉯苝">
+    <meta name="description" content="1、vi的基本概念 
+基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：
+1) 命令行模式command mode）
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>VI | 苝極鉯苝</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/logo.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo2.ico" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">苝極鉯苝</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo2.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">苝極鉯苝</div>
+        <div class="logo-desc">
+            
+            我的小站
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link">
+
+
+
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        VI
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/VI/" target="_blank">
+                                <span class="chip bg-color">VI</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/工具书/" class="post-category" target="_blank">
+                                工具书
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-04-19
+                </div>
+
+                
+				
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>1、vi的基本概念 </p>
+<p>基本上vi可以分为三种状态，分别是命令模式（command mode）、插入模式（Insert mode）和底行模式（last line mode），各模式的功能区分如下：</p>
+<p>1) 命令行模式command mode）</p>
+<p>控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入Insert mode下，或者到 last line mode。</p>
+<p>2) 插入模式（Insert mode）</p>
+<p>只有在Insert mode下，才可以做文字输入，按「ESC」键可回到命令行模式。</p>
+<p>3) 底行模式（last line mode）</p>
+<p>将文件保存或退出vi，也可以设置编辑环境，如寻找字符串、列出行号……等。</p>
+<p>不过一般我们在使用时把vi简化成两个模式，就是将底行模式（last line mode）也算入命令行模式command mode）。</p>
+<p>2、vi的基本操作 </p>
+<p>a)进入vi</p>
+<p>在系统提示符号输入vi及文件名称后，就进入vi全屏幕编辑画面：</p>
+<p>$vi myfile</p>
+<p>不过有一点要特别注意，就是您进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
+<p>b)切换至插入模式（Insert mode）编辑文件</p>
+<p>在「命令行模式（command mode）」下按一下字母「i」就可以进入「插入模式（Insert mode）」，这时你就可以开始输入文字了。</p>
+<p>c)Insert 的切换</p>
+<p>您目前处于「插入模式（Insert mode）」，您就只能一直输入文字，如果您发现输错了字！想用光标键往回移动，将该字删除，就要先按一下「ESC」键转到「命令行模式（command mode）」再删除文字。</p>
+<p>d)退出vi及保存文件</p>
+<p>在「命令行模式（command mode）」下，按一下「：」冒号键进入「Last line mode」，例如：</p>
+<p>: w filename （输入 「w filename」将文章以指定的文件名filename保存）</p>
+<p>: wq (输入「wq」，存盘并退出vi)</p>
+<p>: q! (输入q!， 不存盘强制退出vi)</p>
+<p>3、命令行模式（command mode）功能键 </p>
+<p>1）. 插入模式</p>
+<p>按「i」切换进入插入模式「insert mode」，按“i”进入插入模式后是从光标当前位置开始输入文件；</p>
+<p>按「a」进入插入模式后，是从目前光标所在位置的下一个位置开始输入文字；</p>
+<p>按「o」进入插入模式后，是插入新的一行，从行首开始输入文字。</p>
+<p>2）. 从插入模式切换为命令行模式</p>
+<p>按「ESC」键。</p>
+<p>3）. 移动光标</p>
+<p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
+<p>按「ctrl」+「b」：屏幕往“后”移动一页。</p>
+<p>按「ctrl」+「f」：屏幕往“前”移动一页。</p>
+<p>按「ctrl」+「u」：屏幕往“后”移动半页。</p>
+<p>按「ctrl」+「d」：屏幕往“前”移动半页。</p>
+<p>按数字「0」：移到文章的开头。</p>
+<p>按「G」：移动到文章的最后。</p>
+<p>按「$」：移动到光标所在行的“行尾”。</p>
+<p>按「^」：移动到光标所在行的“行首”</p>
+<p>按「w」：光标跳到下个字的开头</p>
+<p>按「e」：光标跳到下个字的字尾</p>
+<p>按「b」：光标回到上个字的开头</p>
+<p>按「#l」：光标移到该行的第#个位置，如：5l,56l。</p>
+<p>4）. 删除文字</p>
+<p>「x」：每按一次，删除光标所在位置的“后面”一个字符。</p>
+<p>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。</p>
+<p>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。</p>
+<p>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。</p>
+<p>「dd」：删除光标所在行。</p>
+<p>「#dd」：从光标所在行开始删除#行</p>
+<p>5）. 复制</p>
+<p>「yw」：将光标所在之处到字尾的字符复制到缓冲区中。</p>
+<p>「#yw」：复制#个字到缓冲区</p>
+<p>「yy」：复制光标所在行到缓冲区。</p>
+<p>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。</p>
+<p>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</p>
+<p>6）. 替换</p>
+<p>「r」：替换光标所在处的字符。</p>
+<p>「R」：替换光标所到之处的字符，直到按下「ESC」键为止。</p>
+<p>7）. 回复上一次操作</p>
+<p>「u」：如果您误执行一个命令，可以马上按下「u」，回到上一个操作。按多次“u”可以执行多次回复。</p>
+<p>8）. 更改</p>
+<p>「cw」：更改光标所在处的字到字尾处</p>
+<p>「c#w」：例如，「c3w」表示更改3个字</p>
+<p>9）. 跳至指定的行</p>
+<p>「ctrl」+「g」列出光标所在行的行号。</p>
+<p>「#G」：例如，「15G」，表示移动光标至文章的第15行行首。</p>
+<p>4、Last line mode下命令简介 </p>
+<p>在使用「last line mode」之前，请记住先按「ESC」键确定您已经处于「command mode」下后，再按「：」冒号即可进入「last line mode」。</p>
+<p>A)列出行号</p>
+<p>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。</p>
+<p>B)跳到文件中的某一行</p>
+<p>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。</p>
+<p>C)查找字符</p>
+<p>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。</p>
+<p>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。</p>
+<p>D)保存文件</p>
+<p>「w」：在冒号输入字母「w」就可以将文件保存起来。</p>
+<p>E)离开vi</p>
+<p>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。</p>
+<p>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。</p>
+<p>5、vi命令列表 </p>
+<p>h </p>
+<p>左移光标一个字符</p>
+<p>l </p>
+<p>右移光标一个字符</p>
+<p>k </p>
+<p>光标上移一行</p>
+<p>j </p>
+<p>光标下移一行</p>
+<p>^ </p>
+<p>光标移动至行首</p>
+<p>0 </p>
+<p>数字“0”，光标移至文章的开头</p>
+<p>G </p>
+<p>光标移至文章的最后</p>
+<p>$ </p>
+<p>光标移动至行尾</p>
+<p>Ctrl+f </p>
+<p>向前翻屏</p>
+<p>Ctrl+b </p>
+<p>向后翻屏</p>
+<p>Ctrl+d </p>
+<p>向前翻半屏</p>
+<p>Ctrl+u </p>
+<p>向后翻半屏</p>
+<p>i </p>
+<p>在光标位置前插入字符</p>
+<p>a </p>
+<p>在光标所在位的后一个字符开始增加</p>
+<p>o </p>
+<p>插入新的一行，从行首开始输入</p>
+<p>ESC </p>
+<p>从输入状态退至命令状态</p>
+<p>x </p>
+<p>删除光标后面的字符</p>
+<p>#x </p>
+<p>删除光标后的＃个字符</p>
+<p>X </p>
+<p>(大写X)，删除光标前面的字符</p>
+<p>#X </p>
+<p>删除光标前面的#个字符</p>
+<p>dd </p>
+<p>删除光标所在的行</p>
+<p>#dd </p>
+<p>删除从光标所在行数的#行</p>
+<p>yw </p>
+<p>复制光标所在位置的一个字</p>
+<p>#yw </p>
+<p>复制光标所在位置的#个字</p>
+<p>yy </p>
+<p>复制光标所在位置的一行</p>
+<p>#yy </p>
+<p>复制从光标所在行数的#行</p>
+<p>p </p>
+<p>粘贴</p>
+<p>u </p>
+<p>取消操作</p>
+<p>cw </p>
+<p>更改光标所在位置的一个字</p>
+<p>#cw </p>
+<p>更改光标所在位置的#个字</p>
+<p>下表列出行命令模式下的一些指令 </p>
+<p>wfilename </p>
+<p>储存正在编辑的文件为filename</p>
+<p>wqfilename </p>
+<p>储存文件并退出vi</p>
+<p>q! </p>
+<p>放弃所有修改，退出vi</p>
+<p>setnu </p>
+<p>显示行号</p>
+<p>/或? </p>
+<p>查找，在/后输入要查找的内容</p>
+<p>n </p>
+<p>与/或?一起使用，如果查找的内容不是想要找的关键字，按n或向后（与/联用）或向前（与?联用）继续查找，直到找到为止。</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2017/04/19/一点点感悟/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="一点点感悟">
+                        
+                        <span class="card-title">一点点感悟</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">原来在爱情里，我一直是个乞丐。对一个不喜欢你的人来说，任何的示好，其实都只是乞讨。磨着膝盖求来的感情，应该也是一股馊味儿。
+我本将心照沟渠，奈何沟渠映明月。
+对你的好，你若不珍惜，我就会离开，虽然我喜欢你。
+Life is the art </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-04-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/小世界/" class="post-category" target="_blank">
+                                    小世界
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/词句/" target="_blank">
+                        <span class="chip bg-color">词句</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2017/04/17/相机基础/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="相机基础">
+                        
+                        <span class="card-title">相机基础</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">单反单反的全称是单镜头反光相机。实际上单反相机的特征包括有一枚可更换的镜头，有一个反光镜为核心的光路。使用相机摄影都得要有记录影像的感光材料，传统相机的感光材料是胶片，数码相机的感光材料是感光元件（CCD或CMOS），感光器面积的大小与35</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/摄影/" class="post-category" target="_blank">
+                                    摄影
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/摄影/" target="_blank">
+                        <span class="chip bg-color">摄影</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Alvin
+
+            
+
+            
+			
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+</body>
+</html>

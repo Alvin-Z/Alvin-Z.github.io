@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="标签: HEXO, 苝極鉯苝">
+    <meta name="description" content="按照以下步骤，搭建了Github+Hexo的博客，过程记录如下：
+安装hexo2.使用Hexo生成静态页面3.拷贝静态页面到本地github文件夹下，之后上传并发布4.Hexo的使用
+1.安装hexo在使用Hexo之前，需要下载并安装：Gi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>标签: HEXO | 苝極鉯苝</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/logo.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo2.ico" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">苝極鉯苝</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo2.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">苝極鉯苝</div>
+        <div class="logo-desc">
+            
+            我的小站
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link">
+
+
+
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Hexo+Github搭建静态博客
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Hexo/" target="_blank">
+                                <span class="chip bg-color">Hexo</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/工具书/" class="post-category" target="_blank">
+                                工具书
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-03-26
+                </div>
+
+                
+				
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="按照以下步骤，搭建了Github-Hexo的博客，过程记录如下："><a href="#按照以下步骤，搭建了Github-Hexo的博客，过程记录如下：" class="headerlink" title="按照以下步骤，搭建了Github+Hexo的博客，过程记录如下："></a>按照以下步骤，搭建了Github+Hexo的博客，过程记录如下：</h3><ol>
+<li><p>安装hexo<br>2.使用Hexo生成静态页面<br>3.拷贝静态页面到本地github文件夹下，之后上传并发布<br>4.Hexo的使用</p>
+<h3 id="1-安装hexo"><a href="#1-安装hexo" class="headerlink" title="1.安装hexo"></a>1.安装hexo</h3><p>在使用Hexo之前，需要下载并安装：<br>GitBash<br>Node.js</p>
+</li>
+</ol>
+<p>之后，在电脑某个地方创建一个文件夹「HEXO」,然后双击进去。进去之后，鼠标点击右键，会出现 Git Bash ，出现 「黑窗口」。安装Hexo，在黑窗口下输入如下命令：</p>
+<pre><code>$ npm install -g hexo-cli
+</code></pre><p>安装完成之后，继续依次输入如下命令，注意顺序</p>
+<pre><code>$ hexo init  
+
+$ npm install
+</code></pre><h3 id="2-使用Hexo生成静态页面"><a href="#2-使用Hexo生成静态页面" class="headerlink" title="2.    使用Hexo生成静态页面"></a>2.    使用Hexo生成静态页面</h3><p>回到「HEXO」文件夹下，多了好多东西，继续依次输入如下命令：</p>
+<pre><code>$ hexo g  
+
+$ hexo s
+</code></pre><p>在浏览器里输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br>如果能打开，那么恭喜你！你的博客搭建完成了！</p>
+<h3 id="3-拷贝静态页面到本地github文件夹下，之后上传并发布"><a href="#3-拷贝静态页面到本地github文件夹下，之后上传并发布" class="headerlink" title="3.    拷贝静态页面到本地github文件夹下，之后上传并发布"></a>3.    拷贝静态页面到本地github文件夹下，之后上传并发布</h3><p>创建好账号之后，你需要创建一个仓库repository。如果你要用这个仓库来存放你的博客，那么仓库的名字不是你想改，想改就能改的，仓库的名称必须是这样的</p>
+<blockquote>
+<p>仓库的名称 = 你注册的昵称 + github.io</p>
+</blockquote>
+<p>接下来，你需要下载一个GitHub Windows客户端。安装好之后，登录，然后Clone下来你刚创建的仓库，像这样（我的是hedge-hog.githu.io）。Clone的时候，会让你选择Clone的地方，记住这个地方，比如，我的「HEXO」和GitHub Clone的目标文件夹「GitHub_page」都在D盘的根目录下</p>
+<p>接下来，到「HEXO」文件夹下，找到public文件夹，将public文件夹下的所有东西，全部粘贴到你刚刚Clone下来的仓库中，也就是：你的GitHub昵称+github.io 中。</p>
+<p>粘贴好之后，打开GitHub Windows客户端，你本地的代码已经有了改变，所以客户端会提醒你，让你 Commit to master,把该填的一填，然后Commit，Commit完成之后，别忘了点击右上角的 publish 上述一切完成之后，请在浏览器里输入你注册的昵称 + github.io，好了，你的博客到此为止，已经搭建完成。</p>
+<h3 id="4-Hexo的使用"><a href="#4-Hexo的使用" class="headerlink" title="4. Hexo的使用"></a>4. Hexo的使用</h3><p>下载好一套hexo的模板之后，放到HEXO目录themes目录下，再将根目录下_config.yml文件中的theme选项改成模板文件夹的名字，就可以使用该模板来生成静态页面了。</p>
+<p>模板的字体设置在mixins.styl<br>文章字体大小在base.styl<br>body<br>  @extend .serif<br>  font-size 16px<br>原图片在theme\img文件夹下，经hexo g生成后会复制一份到public文件夹下。</p>
+<h2 id="5-部署步骤"><a href="#5-部署步骤" class="headerlink" title="5.部署步骤"></a>5.部署步骤</h2><p>每次部署的步骤，可按以下三步来进行。</p>
+<p><strong>    hexo clean</strong></p>
+<p><strong>    hexo generate</strong></p>
+<p><strong>    hexo deploy</strong></p>
+<h2 id="6-一些常用命令："><a href="#6-一些常用命令：" class="headerlink" title="6. 一些常用命令："></a>6. 一些常用命令：</h2><p>hexo new”postName” #新建文章</p>
+<p>hexo new page”pageName” #新建页面</p>
+<p>hexo generate #生成静态页面至public目录</p>
+<p>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）</p>
+<p>hexo deploy #将.deploy目录部署到GitHub</p>
+<p>hexo help # 查看帮助</p>
+<p>hexo version #查看Hexo的版本</p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/03/26/Markdown/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Markdown语法">
+                        
+                        <span class="card-title">Markdown语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">标题设置（让字体变大，和word的标题意思一样）在Markdown当中设置标题，有两种方式：第一种：通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。第二种：在文字开头加上 “#”，通过“#”数量表示几级标题。（一共只有1~</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具书/" class="post-category" target="_blank">
+                                    工具书
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Markdown/" target="_blank">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/03/26/Font Awesome/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Font Awesome 文字图标">
+                        
+                        <span class="card-title">Font Awesome 文字图标</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">图标站： http://fontawesome.io/icons/
+Animated IconsLoading…
+Loading…
+Loading…
+Loading…
+Loading…
+Loading…
+Loading…
+Basic Ico</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具书/" class="post-category" target="_blank">
+                                    工具书
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/HEXO/" target="_blank">
+                        <span class="chip bg-color">HEXO</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Alvin
+
+            
+
+            
+			
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+</body>
+</html>

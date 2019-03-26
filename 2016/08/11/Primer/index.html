@@ -1,0 +1,1551 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CPP Primer4, 苝極鉯苝">
+    <meta name="description" content="重要概念
+初始化不是赋值在 C++ 中理解“初始化不是赋值”是必要的。初始化指创建变量并给它赋初始值，而赋值则是擦除对象的当前值并用新值代替。
+指针与引用的比较虽然使用引用（reference）和指针都可间接访问另一个值，但它们之间有两个重">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>CPP Primer4 | 苝極鉯苝</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/medias/logo.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo2.ico" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">苝極鉯苝</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo2.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">苝極鉯苝</div>
+        <div class="logo-desc">
+            
+            我的小站
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        
+    </ul>
+
+    <div class="social-link">
+
+
+
+
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        CPP Primer4
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CPP/" target="_blank">
+                                <span class="chip bg-color">CPP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/码匠/" class="post-category" target="_blank">
+                                码匠
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2016-08-11
+                </div>
+
+                
+				
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h1><hr>
+<h3 id="初始化不是赋值"><a href="#初始化不是赋值" class="headerlink" title="初始化不是赋值"></a>初始化不是赋值</h3><p>在 C++ 中理解“初始化不是赋值”是必要的。初始化指创建变量并给它赋初始值，而赋值则是擦除对象的当前值并用新值代替。</p>
+<h2 id="指针与引用的比较"><a href="#指针与引用的比较" class="headerlink" title="指针与引用的比较"></a>指针与引用的比较</h2><p>虽然使用引用（reference）和指针都可间接访问另一个值，但它们之间有两个重要区别。第一个区别在于引用总是指向某个对象：定义引用时没有初始化是错误的。第二个重要区别则是赋值行为的差异：给引用赋值修改的是该引用所关联的对象的值，而并不是使引用与另一个对象关联。引用一经初始化，就始终指向同一个特定对象（这就是为什么引用必须在定义时初始化的原因）。</p>
+<p>考虑以下两个程序段。第一个程序段将一个指针赋给另一指针：</p>
+<pre><code>int ival = 1024, ival2 = 2048;
+int *pi = &amp;ival, *pi2 = &amp;ival2;
+pi = pi2;    // pi now points to ival2
+</code></pre><p>赋值结束后，pi 所指向的 ival 对象值保持不变，赋值操作修改了 pi 指针的值，使其指向另一个不同的对象。现在考虑另一段相似的程序，使用两个引用赋值：</p>
+<pre><code>int &amp;ri = ival, &amp;ri2 = ival2;
+ri = ri2;    // assigns ival2 to ival
+</code></pre><p>这个赋值操作修改了 ri 引用的值 ival 对象，而并非引用本身。赋值后，这两个引用还是分别指向原来关联的对象，此时这两个对象的值相等。</p>
+<h3 id="变量的声明与定义"><a href="#变量的声明与定义" class="headerlink" title="变量的声明与定义"></a>变量的声明与定义</h3><p>C++ 程序通常由许多文件组成。<code>为了让多个文件访问相同的变量，C++ 区分了声明和定义。</code></p>
+<p>声明用于向程序表明变量的类型和名字。定义也是声明：当定义变量时我们声明了它的类型和名字。可以通过使用extern关键字声明变量名而不定义它。不定义变量的声明包括对象名、对象类型和对象类型前的关键字extern。extern 声明不是定义，也不分配存储空间。事实上，它只是说明变量定义在程序的其他地方。程序中变量可以声明多次，但只能定义一次。</p>
+<p>变量的定义用于为变量分配存储空间，还可以为变量指定初始值。在一个程序中，变量有且仅有一个定义。</p>
+<p>只有当声明也是定义时，声明才可以有初始化式，因为只有定义才分配存储空间。初始化式必须要有存储空间来进行初始化。如果声明有初始化式，那么它可被当作是定义，即使声明标记为 extern：</p>
+<pre><code>extern double pi = 3.1416; // definition
+</code></pre><p>虽然使用了 extern ，但是这条语句还是定义了 pi，分配并初始化了存储空间。只有当 extern 声明位于函数外部时，才可以含有初始化式。</p>
+<p>因为已初始化的 extern 声明被当作是定义，所以该变量任何随后的定义都是错误的：</p>
+<pre><code>extern double pi = 3.1416; // definition
+double pi;                 // error: redefinition of pi
+</code></pre><p>同样，随后的含有初始化式的 extern 声明也是错误的：</p>
+<pre><code>extern double pi = 3.1416; // definition
+extern double pi;          // ok: declaration not definition
+extern double pi = 3.1416; // error: redefinition of pi
+</code></pre><h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h1 id="1-快速入门"><a href="#1-快速入门" class="headerlink" title="1 快速入门"></a>1 快速入门</h1><h2 id="1-1-编写简单的-C-程序"><a href="#1-1-编写简单的-C-程序" class="headerlink" title="1.1. 编写简单的 C++ 程序"></a>1.1. 编写简单的 C++ 程序</h2><p>每个 C++ 程序都包含一个或多个函数，而且必须有一个命名为 main。main 函数的返回值必须是 <code>int 型</code>。操作系统通过 main 函数返回的值来确定程序是否成功执行完毕。返回 0 值表明程序程序成功执行完毕。任何其他非零的返回值都有操作系统定义的含义。通常非零返回值表明有错误出现。每一种操作系统都有自己的方式告诉用户 main 函数返回什么内容。</p>
+<p>C++ 程序文件的后缀与运行的具体编译器有关。其形式还包括。</p>
+<pre><code>prog1.cxx
+prog1.cpp
+prog1.cp
+prog1.C
+prog1.CC
+</code></pre><h2 id="1-2初窥输入-输出"><a href="#1-2初窥输入-输出" class="headerlink" title="1.2初窥输入/输出"></a>1.2初窥输入/输出</h2><p><code>C++ 并没有直接定义进行输入或输出（IO）的任何语句，这种功能是由标准库提供的。</code>iostream 库的基础是两种命名为 istream 和 ostream 的类型，分别表示输入流和输出流。ssdf</p>
+<p>标准库定义了 4 个<code>IO 对象</code>:</p>
+<ol>
+<li>处理输入时使用命名为 cin（读作 see-in）的 <code>istream 类型对象</code>。这个对象也称为标准输入。</li>
+<li>处理输出时使用命名为 cout（读作 see-out）的 <code>ostream 类型对象</code>，这个对象也称为标准输出。</li>
+<li>标准库还定义了另外两个 <code>ostream 对象</code>，分别命名为 cerr 和 clog（分别读作“see-err”和“see-log”）。cerr 对象又叫作标准错误，通常用来输出警告和错误信息给程序的使用者。</li>
+<li>clog 对象用于产生程序执行的一般信息。</li>
+</ol>
+<p>一般情况下，系统将这些对象与执行程序的窗口联系起来。这样，当我们从 cin 读入时，数据从执行程序的窗口读入，当写到 cin、cerr 或 clog 时，输出写至同一窗口。运行程序时，大部分操作系统都提供了重定向输入或输出流的方法。利用重定向可以将这些流与所选择的文件联系起来。</p>
+<p><code>输出操作符（&lt;&lt; 操作符）</code>返回的是其左操作数。C++ 中，每个表达式都会产生一个结果，通常是将操作符作用到其操作数所产生的值。当操作符是输出操作符时，结果是左操作数的值。也就是说，<code>输出操作返回的值是输出流本身。</code></p>
+<p><code>endl</code> 是一个特殊值，称为<code>操纵符</code>，将它写入输出流时，具有输出换行的效果，<code>并刷新与设备相关联的缓冲区</code>。通过刷新缓冲区，用户可立即看到写入到流中的输出。</p>
+<p><code>作用域操作符（scope operator，:: 操作符）</code></p>
+<p><code>输入操作符（&gt;&gt; 操作符）</code>行为与输出操作符相似。它接受一个 istream 对象作为其左操作数，接受一个对象作为其右操作数，<code>它从 istream 操作数读取数据并保存到右操作数中</code>。像输出操作符一样，输入操作符返回其左操作数作为结果。由于输入操作符返回其左操作数，我们可以将输入请求序列合并成单个语句。</p>
+<blockquote>
+<p>在写 C++ 程序时，大部分出现空格符的地方可用换行符代替。这条规则的一个例外是字符串字面值中的空格符不能用换行符代替。另一个例外是空格符不允许出现在预处理指示中。</p>
+</blockquote>
+<h2 id="1-3-关于注释"><a href="#1-3-关于注释" class="headerlink" title="1.3 关于注释"></a>1.3 关于注释</h2><p>注释并不会增加可执行程序的大小，编译器会忽略所有注释。</p>
+<p>单行注释以双斜线（//）开头，行中处于双斜线右边的内容是注释，被编译器忽略。</p>
+<p>多行注释为（/* */），是从 C 语言继承过来的。</p>
+<p><code>注释对不可嵌套</code></p>
+<h3 id="1-4-4-读入未知数目的输入"><a href="#1-4-4-读入未知数目的输入" class="headerlink" title="1.4.4. 读入未知数目的输入"></a>1.4.4. 读入未知数目的输入</h3><pre><code>#include &lt;iostream&gt;
+int main()
+{
+    int sum = 0, value;
+    // read till end-of-file, calculating a running total of all values read
+    while (std::cin &gt;&gt; value)
+        sum += value; // equivalent to sum = sum + value
+    std::cout &lt;&lt; &quot;Sum is: &quot; &lt;&lt; sum &lt;&lt; std::endl;
+    return 0;
+ }
+</code></pre><p>如果我们给出本程序的输入：</p>
+<p>  3 4 5 6 （空格分隔，control+z结束，或者输入非整数类型+回车）</p>
+<p>那么输出是：</p>
+<p>  Sum is: 18</p>
+<p>当我们使用 istream 对象作为条件，结果是测试流的状态。如果流是有效的（也就是说，如果读入下一个输入是可能的）那么测试成功。遇到<code>文件结束符或遇到无效输入</code>时，如读取了一个不是整数的值，则 istream 对象是无效的。处于无效状态的 istream 对象将导致条件失败。</p>
+<p><code>操作系统使用不同的值作为文件结束符。Windows 系统下我们通过键入 control—z——同时键入“ctrl”键和“z”键，来输入文件结束符。Unix 系统中，包括 Mac OS—X 机器，通常用 control—d。</code></p>
+<h2 id="1-5-类的简介"><a href="#1-5-类的简介" class="headerlink" title="1.5. 类的简介"></a>1.5. 类的简介</h2><p>类类型存储在一个文件中，其文件名如同程序的源文件名一样，由文件名和文件后缀两部分组成。通常文件名和定义在头文件中的类名是一样的。通常后缀是 .h，但也有一些程序员用 .H、.hpp 或 .hxx。编译器通常并不挑剔头文件名，但 IDE 有时会。</p>
+<p><code>标准库的头文件用尖括号 &lt; &gt; 括起来，非标准库的头文件用双引号 &quot; &quot; 括起来。</code></p>
+<p><code>与大多数其他操作符不同，点操作符（“.”）的右操作数不是对象或值，而是成员的名字。</code></p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>通常使用成员函数作为点操作符的右操作数来调用成员函数。执行成员函数和执行其他函数相似：要调用函数，可将<code>调用操作符（()）</code>放在函数名之后。调用操作符是一对圆括号，括住传递给函数的实参列表（可能为空）。</p>
+<blockquote>
+<ol>
+<li>main函数的形参个数是有限的</li>
+<li>我们倾向于吧确定函数边界的花括号自成一行，且缩进复合的输入或输出表达式从而使操作符排列整齐；</li>
+</ol>
+</blockquote>
+<h1 id="2-变量和基本类型"><a href="#2-变量和基本类型" class="headerlink" title="2 变量和基本类型"></a>2 变量和基本类型</h1><h2 id="2-1-基本内置类型"><a href="#2-1-基本内置类型" class="headerlink" title="2.1. 基本内置类型"></a>2.1. 基本内置类型</h2><p>C++ 定义了一组表示整数、浮点数、单个字符和布尔值的<code>算术类型</code>，另外还定义了一种称为 void 的<code>特殊类型</code>。void 类型没有对应的值，仅用在有限的一些情况下，通常用作无返回值函数的返回类型。</p>
+<p>算术类型的存储空间依机器而定。<code>这里的存储空间是指用来表示该类型的位（bit）数。C++标准规定了每个算术类型的最小存储空间，但它并不阻止编译器使用更大的存储空间。</code>事实上，对于int类型，几乎所有的编译器使用的存储空间都比所要求的大。int表 2.1 列出了内置算术类型及其对应的最小存储空间。</p>
+<table>
+<thead>
+<tr>
+<th>bool</th>
+<th>布尔型</th>
+<th>-</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>字符型</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>wchar_t</td>
+<td>宽字符型</td>
+<td>16</td>
+<td>用于扩展字符集，比如汉字和日语</td>
+</tr>
+<tr>
+<td>short</td>
+<td>短整型</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>int</td>
+<td>整形</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>long</td>
+<td>长整形</td>
+<td>32</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>单精度浮点型</td>
+<td>6位有效数字</td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度浮点型</td>
+<td>10位有效数字</td>
+<td></td>
+</tr>
+<tr>
+<td>long double</td>
+<td>扩展精度浮点型</td>
+<td>10位有效数字</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>表示整数、字符和布尔值的算术类型合称为整型。</p>
+<p>short、int 和 long 类型都表示整型值，存储空间的大小不同。一般， short 类型为半个机器字长，int 类型为一个机器字长，而 long 类型为一个或两个机器字长（在 32 位机器中 int 类型和 long 类型通常字长是相同的）。</p>
+<p>bool 类型表示真值 true 和 false。<code>可以将算术类型的任何值赋给 bool 对象。</code>0 值算术类型代表 false，任何非 0 的值都代表 true。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>除 bool 类型外，整型可以是带符号的（signed）也可以是无符号的（unsigned）。顾名思义，带符号类型可以表示正数也可以表示负数（包括 0），而无符号型只能表示大于或等于 0 的数。</p>
+<p>整型 int、short 和 long 都默认为带符号型。<code>unsigned int 类型可以简写为 unsigned</code>，也就是说，unsigned 后不加其他类型说明符意味着是 unsigned int 。</p>
+<p><code>和其他整型不同，char 有三种不同的类型：plain char 、unsigned char 和 signed char。</code>虽然 char 有三种不同的类型，但只有两种表示方式。可以使用 unsigned char 或 signed char 表示 char 类型。使用哪种 char 表示方式由编译器而定。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>C++ 标准并未定义 signed 类型如何用位来表示，而是由每个编译器自由决定如何表示 signed 类型。这些表示方式会影响 signed 类型的取值范围。<code>8 位 signed 类型的取值肯定至少是从 -127 到 127，但也有许多实现允许取值从 -128 到 127。</code></p>
+<p><code>C++ 中，把负值赋给 unsigned 对象是完全合法的，其结果是该负数对该类型的取值个数求模后的值。所以，如果把 -1 赋给8位的 unsigned char，那么结果是 255，因为 255 是 -1 对 256 求模后的值。</code></p>
+<p>类型 float、 double 和 long double 分别表示单精度浮点数、双精度浮点数和扩展精度浮点数。一般 float 类型用一个字（32 位）来表示，double 类型用两个字（64 位）来表示，long double 类型用三个或四个字（96 或 128 位）来表示。类型的取值范围决定了浮点数所含的有效数字位数。</p>
+<h2 id="2-2-字面值常量"><a href="#2-2-字面值常量" class="headerlink" title="2.2. 字面值常量"></a>2.2. 字面值常量</h2><p><code>只有内置类型存在字面值，没有类类型的字面值。</code></p>
+<p>以 0（零）开头的字面值整数常量表示八进制，以 0x 或 0X 开头的表示十六进制。</p>
+<p>通过在数值后面加 L 或者 l（字母“l”大写或小写）指定常量为 long 类型。定义长整型时，应该使用大写字母 L。小写字母 l 很容易和数值 1 混淆。</p>
+<p>类似地，可通过在数值后面加 U 或 u 定义 unsigned 类型。同时加 L 和 U 就能够得到 unsigned long 类型的字面值常量。但其后缀不能有空格。</p>
+<p>通常可以用十进制或者科学计数法来表示浮点字面值常量。使用科学计数法时，指数用 E 或者 e 表示。默认的浮点字面值常量为 double 类型。在数值的后面加上 F 或 f 表示单精度。同样加上 L 或者 l 表示扩展精度（再次提醒，不提倡使用小写字母l）。</p>
+<p>可打印的字符型字面值通常用一对单引号来定义：</p>
+<pre><code>&apos;a&apos;         &apos;2&apos;         &apos;,&apos;         &apos; &apos; // blank
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>这些字面值都是 char 类型的。<code>在字符字面值前加 L 就能够得到 wchar_t 类型的宽字符字面值。</code>如：</p>
+<pre><code>L&apos;a&apos;
+</code></pre><p>我们可以将任何字符表示为以下形式的通用转义字符：</p>
+<pre><code>\ooo
+</code></pre><p>这里 ooo 表示三个八进制数字，这三个数字表示字符的数字值。下面的例子是用 ASCII 码字符集表示字面值常量：</p>
+<pre><code>\7 (bell)      \12 (newline)     \40 (blank)
+\0 (空字符)      \062 (&apos;2&apos;)        \115 (&apos;M&apos;)
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>为了兼容 C 语言，C++ 中所有的字符串字面值都由编译器自动在末尾添加一个空字符。字符字面值’A’表示单个字符 A，然而 “A” 表示包含字母 A 和空字符两个字符的字符串。</p>
+<p>正如存在宽字符字面值，也存在<code>宽字符串字面值</code>，一样在前面加“L”，如</p>
+<pre><code>L&quot;a wide string literal&quot;
+</code></pre><p>宽字符串字面值是一串常量宽字符，同样以一个<code>宽空字符</code>结束。</p>
+<p>两个相邻的仅由空格、制表符或换行符分开的字符串字面值（或宽字符串字面值），可连接成一个新字符串字面值。 </p>
+<p><code>在一行的末尾加一反斜线符号\可将此行和下一行当作同一行处理。注意反斜线符号必须是该行的尾字符——不允许有注释或空格符。同样，后继行行首的任何空格和制表符都是字符串字面值的一部分。正因如此，长字符串字面值的后继行才不会有正常的缩进。</code></p>
+<h2 id="2-3变量"><a href="#2-3变量" class="headerlink" title="2.3变量"></a>2.3变量</h2><p><strong>变量名</strong>，可以由字母、数字和下划线组成。变量名必须以字母或下划线开头，并且区分大小写字母。</p>
+<p>定义时指定了初始值的对象被称为是<code>已初始化的</code>。C++ 支持两种初始化变量的形式：<code>复制初始化和直接初始化</code>。复制初始化语法用等号（=），直接初始化则是把初始化式放在括号中。</p>
+<pre><code>int ival = 1024;    // copy-initialization
+int ival(1024);      // direct-initialization
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span><code>在 C++ 中理解“初始化不是赋值”是必要的。初始化指创建变量并给它赋初始值，而赋值则是擦除对象的当前值并用新值代替。</code></p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>对于字符串，除了以上两种方法之外，也可以通过一个计数器和一个字符初始化string对象。这样创建的对象包含重复多次的指定字符，重复次数由计数器指定：</p>
+<pre><code>std::string all_nines(10, &apos;9&apos;);   // all_nines= &quot;9999999999&quot;
+</code></pre><p><code>内置类型变量是否自动初始化取决于变量定义的位置。在函数体外定义的变量都初始化成 0，在函数体里定义的内置类型变量不进行自动初始化。</code></p>
+<p>如果定义某个类的变量时没有提供初始化式，这个类也可以定义初始化时的操作。它是通过定义一个特殊的构造函数即默认构造函数来实现的。这个构造函数之所以被称作默认构造函数，是因为它是“默认”运行的。如果没有提供初始化式，那么就会使用默认构造函数。不管变量在哪里定义，默认构造函数都会被使用。</p>
+<h2 id="2-4-const限定符"><a href="#2-4-const限定符" class="headerlink" title="2.4 const限定符"></a>2.4 const限定符</h2><p>因为常量在定义后就不能被修改，所以定义时必须初始化：</p>
+<pre><code>const std::string hi = &quot;hello!&quot;; // ok: initialized
+const int i, j = 0;  // error: i is uninitialized const
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>与其他变量不同，除非特别说明，在全局作用域声明的 const 变量是定义该对象的文件的局部变量。此变量只存在于那个文件中，不能被其他文件访问。</p>
+<p><code>非 const 变量默认为 extern。要使 const 变量能够在其他的文件中访问，必须地指定它为 extern。</code></p>
+<h2 id="2-5引用"><a href="#2-5引用" class="headerlink" title="2.5引用"></a>2.5引用</h2><p>引用是一种复合类型，是对象的另一个名字，通过在变量名前添加“&amp;”符号来定义。复合类型是指用其他类型定义的类型。在引用的情况下，每一种引用类型都“关联到”某一其他类型。<code>不能定义引用类型的引用，但可以定义任何其他类型的引用。</code></p>
+<p>引用必须用与该引用同类型的对象初始化：</p>
+<pre><code>int ival = 1024;
+int &amp;refVal = ival; // ok: refVal refers to ival
+int &amp;refVal2;       // error: a reference must be initialized
+int &amp;refVal3 = 10;  // error: initializer must be an object
+</code></pre><p>当引用初始化后，只要该引用存在，它就保持绑定到初始化时指向的对象。不可能将引用绑定到另一个对象。`</p>
+<p>const 引用是指向 const 对象的引用：</p>
+<pre><code>const int ival = 1024;
+const int &amp;refVal = ival;      // ok: both reference and object are const
+int &amp;ref2 = ival;              // error: non const reference to a const object
+</code></pre><p>const 引用可以初始化为不同类型的对象或者初始化为右值（第 2.3.1 节），如字面值常量：</p>
+<pre><code>int i = 42;
+//  legal for const references only
+const int &amp;r = 42;
+const int &amp;r2 = r + i;
+</code></pre><p>同样的初始化对于非 const 引用却是不合法的，而且会导致编译时错误。其原因非常微妙，值得解释一下。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>观察将引用绑定到不同的类型时所发生的事情，最容易理解上述行为。假如我们编写</p>
+<pre><code>double dval = 3.14;
+const int &amp;ri = dval;
+</code></pre><p>编译器会把这些代码转换成如以下形式的编码：</p>
+<pre><code>int temp = dval;          // create temporary int from the double
+const int &amp;ri = temp;   // bind ri to that temporary
+</code></pre><p>如果 ri 不是 const，那么可以给 ri 赋一新值。这样做不会修改 dval，而是修改了 temp。期望对 ri 的赋值会修改 dval 的程序员会发现 dval 并没有被修改。仅允许 const 引用绑定到需要临时使用的值完全避免了这个问题，因为 const 引用是只读的。</p>
+<p>非 const 引用只能绑定到与该引用同类型的对象。</p>
+<p>const 引用则可以绑定到不同但相关的类型的对象或绑定到右值。</p>
+<h2 id="2-7枚举"><a href="#2-7枚举" class="headerlink" title="2.7枚举"></a>2.7枚举</h2><p>枚举的定义包括关键字 enum，其后是一个可选的枚举类型名，和一个用花括号括起来、用逗号分开的枚举成员列表。</p>
+<p>默认地，第一个枚举成员赋值为 0，后面的每个枚举成员赋的值比前面的大 1。</p>
+<p>例如，可以定义下列枚举类型：</p>
+<pre><code>// shape is 1, sphere is 2, cylinder is 3, polygon is 4
+enum Forms {shape = 1, sphere, cylinder, polygon};
+</code></pre><p>在 枚举类型 Forms 中，显式将 shape 赋值为 1。其他枚举成员隐式初始化：sphere 初始化为 2，cylinder 初始化为 3，polygon 初始化为 4。</p>
+<p>可以为一个或多个枚举成员提供初始值，用来初始化枚举成员的值必须是一个常量表达式。常量表达式是编译器在编译时就能够计算出结果的整型表达式。整型字面值常量是常量表达式。</p>
+<p>可以定义下列枚举类型：</p>
+<pre><code>// shape is 1, sphere is 2, cylinder is 3, polygon is 4
+enum Forms {shape = 1, sphere, cylinder, polygon};
+</code></pre><p>在 枚举类型 Forms 中，显式将 shape 赋值为 1。其他枚举成员隐式初始化：sphere 初始化为 2，cylinder 初始化为 3，polygon 初始化为 4。</p>
+<p>枚举成员值可以是不唯一的。</p>
+<pre><code>// point2d is 2, point2w is 3, point3d is 3, point3w is 4
+enum Points { point2d = 2, point2w,
+              point3d = 3, point3w };
+</code></pre><p>本例中，枚举成员 point2d 显式初始化为 2。下一个枚举成员 point2w 默认初始化，即它的值比前一枚举成员的值大 1。因此 point2w 初始化为 3。枚举成员 point3d 显式初始化为 3。一样，point3w 默认初始化，结果为 4。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>每个 enum 都定义一种唯一的类型。枚举类型的对象的初始化或赋值，只能通过其枚举成员或同一枚举类型的其他对象来进行：</p>
+<pre><code>Points pt3d = point3d; //  ok: point3d is a Points enumerator
+Points pt2w = 3;       //  error: pt2w initialized with int
+pt2w = polygon;        //  error: polygon is not a Points enumerator
+pt2w = pt3d;           //  ok: both are objects of Points enum type
+</code></pre><h2 id="2-8类类型"><a href="#2-8类类型" class="headerlink" title="2.8类类型"></a>2.8类类型</h2><p>用 class 和 struct 关键字定义类的唯一差别在于默认访问级别：默认情况下，struct 的成员为 public，而 class 的成员为 private。</p>
+<h2 id="2-9-编写自己的头文件"><a href="#2-9-编写自己的头文件" class="headerlink" title="2.9. 编写自己的头文件"></a>2.9. 编写自己的头文件</h2><p>头文件用于声明而不是用于定义。当设计头文件时，记住定义和声明的区别是很重要的。定义只可以出现一次，而声明则可以出现多次（第 2.3.5 节）。下列语句是一些定义，所以不应该放在头文件里：</p>
+<pre><code>extern int ival = 10;      // initializer, so it&apos;s a definition
+double fica_rate;          // no extern, so it&apos;s a definition
+</code></pre><p>虽然 ival 声明为 extern，但是它有初始化式，代表这条语句是一个定义。类似地，fica_rate 的声明虽然没有初始化式，但也是一个定义，因为没有关键字 extern。同一个程序中有两个以上文件含有上述任一个定义都会导致多重定义链接错误。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>对于头文件不应该含有定义这一规则，有三个例外。头文件可以定义类、值在编译时就已知道的 const 对象和 inline 函数（第 7.6 节介绍 inline 函数）。这些实体可在多个源文件中定义，只要每个源文件中的定义是相同的。</p>
+<p>如果 const 变量不是用常量表达式初始化，那么它就不应该在头文件中定义。相反，和其他的变量一样，该 const 变量应该在一个源文件中定义并初始化。应在头文件中为它添加 extern 声明，以使其能被多个文件共享。</p>
+<h1 id="3标准库类型"><a href="#3标准库类型" class="headerlink" title="3标准库类型"></a>3标准库类型</h1><hr>
+<h2 id="3-1-命名空间的-using-声明"><a href="#3-1-命名空间的-using-声明" class="headerlink" title="3.1. 命名空间的 using 声明"></a>3.1. 命名空间的 using 声明</h2><pre><code>using std::cin;
+using std::string;
+</code></pre><p>有一种情况下，必须总是使用完全限定的标准库名字：在头文件中。理由是头文件的内容会被预处理器复制到程序中。用 #include 包含文件时，相当于头文件中的文本将成为我们编写的文件的一部分。如果在头文件中放置 using 声明，就相当于在包含该头文件 using 的每个程序中都放置了同一 using，不论该程序是否需要 using 声明。</p>
+<h2 id="3-2-标准库-string-类型"><a href="#3-2-标准库-string-类型" class="headerlink" title="3.2. 标准库 string 类型"></a>3.2. 标准库 string 类型</h2><p>几种初始化 string 对象的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string s1;	 		默认构造函数 s1 为空串</span><br><span class="line"></span><br><span class="line">string s2(s1);		将 s2 初始化为 s1 的一个副本</span><br><span class="line"></span><br><span class="line">string s3(&quot;value&quot;);	将 s3 初始化为一个字符串字面值副本</span><br><span class="line"></span><br><span class="line">string s4(n, &apos;c&apos;);	将 s4 初始化为字符 &apos;c&apos; 的 n 个副本</span><br></pre></td></tr></table></figure>
+<h3 id="String对象的读写"><a href="#String对象的读写" class="headerlink" title="String对象的读写"></a>String对象的读写</h3><pre><code>int main() {
+    string s;          // empty string
+    cin &gt;&gt; s;          // read whitespace-separated string into s
+    cout &lt;&lt; s &lt;&lt; endl; // write s to the output
+    return 0;
+}
+</code></pre><p>以上程序首先定义命名为 s 的 string 第二行代码：</p>
+<pre><code>cin &gt;&gt; s;        // read whitespace-separated string into s
+</code></pre><p>从标准输入读取 string 并将读入的串存储在 s 中。string 类型的输入操作符：</p>
+<ol>
+<li>读取并忽略开头所有的<code>空白字符（如空格，换行符，制表符）</code>。</li>
+<li>读取字符直至再次遇到空白字符，读取终止。</li>
+</ol>
+<p>如果输入是”Hello World!”（注意到开头和结尾的空格），则屏幕上将输出”Hello”，而不含任何空格。</p>
+<p>另外还有一个有用的 string IO 操作：getline。这个函数接受两个参数：一个输入流对象和一个 string 对象。getline 函数从输入流的下一行读取，并保存读取的内容到不包括<code>换行符</code>。和输入操作符不一样的是，getline 并不忽略行开头的换行符。只要 getline 遇到换行符，即便它是输入的第一个字符，getline 也将停止读入并返回。如果第一个字符就是换行符，则 string 参数将被置为空 string。</p>
+<p>由于 line 不含换行符，若要逐行输出需要自行添加。照常，我们用 endl 来输出一个换行符并刷新输出缓冲区。</p>
+<h3 id="String对象的操作"><a href="#String对象的操作" class="headerlink" title="String对象的操作"></a>String对象的操作</h3><table>
+<thead>
+<tr>
+<th>s.empty()</th>
+<th>如果 s 为空串，则返回 true，否则返回 false。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.size()</td>
+<td>返回 s 中字符的个数</td>
+</tr>
+<tr>
+<td>s[n]</td>
+<td>返回 s 中位置为 n 的字符，位置从 0 开始计数</td>
+</tr>
+<tr>
+<td>s1 + s2</td>
+<td>把 s1 和s2 连接成一个新字符串，返回新生成的字符串</td>
+</tr>
+<tr>
+<td>s1 = s2</td>
+<td>把 s1 内容替换为 s2 的副本</td>
+</tr>
+<tr>
+<td>v1 == v2</td>
+<td>比较 v1 与 v2的内容，相等则返回 true，否则返回 false</td>
+</tr>
+<tr>
+<td>!=, &lt;, &lt;=, &gt;, and &gt;=</td>
+<td>保持这些操作符惯有的含义</td>
+</tr>
+</tbody>
+</table>
+<p>size 操作返回的是 <code>string::size_type</code> 类型的值。string 类类型和许多其他库类型都定义了一些配套类型（companion type）。通过这些配套类型，库类型的使用就能与机器无关（machine-independent）。size_type 就是这些配套类型中的一种。它定义为与 unsigned 型（unsigned int 或 unsigned long）具有相同的含义，而且可以保证足够大能够存储任意 string 对象的长度。为了使用由 string 类型定义的 size_type 类型是由 string 类定义。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>任何存储 string 的 size 操作结果的变量必须为 string::size_type 类型。特别重要的是，还要把 size 的返回值赋给一个 int 变量。（size_type是unsigned类型的，而有些机器int型仅为16位）</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>string 对象比较操作是区分大小写的，即同一个字符的大小写形式被认为是两个不同的字符。在多数计算机上，大写的字母位于小写之前：任何一个大写之母都小于任意的小写字母。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>当进行 string 对象和字符串字面值混合连接操作时，+ 操作符的左右操作数必须至少有一个是 string 类型的：</p>
+<pre><code>string s1 = &quot;hello&quot;;   // no punctuation
+string s2 = &quot;world&quot;;
+string s3 = s1 + &quot;, &quot;;           // ok: adding a string and a literal
+string s4 = &quot;hello&quot; + &quot;, &quot;;      // error: no string operand
+string s5 = s1 + &quot;, &quot; + &quot;world&quot;; // ok: each + has string operand
+string s6 = &quot;hello&quot; + &quot;, &quot; + s2; // error: can&apos;t add string literals
+</code></pre><p>s5 的初始化方法显得有点不可思议，但这种用法和标准输入输出的串联效果是一样的（1.2 节）。本例中，string 标准库定义加操作返回一个 string 对象。这样，在对 s5 进行初始化时，子表达式 s1 + “, “ 将返回一个新 string 对象，后者再和字面值 “world\n”连接。</p>
+<p><code>string 类型通过下标操作符（[ ]）来访问 string 对象中的单个字符。下标操作符需要取一个 size_type 类型的值，来标明要访问字符的位置。这个下标中的值通常被称为“下标”或“索引”（index）</code></p>
+<p>和变量一样，string 对象的下标操作返回值也是左值。因此，下标操作可以放于赋值操作符的左边或右边。通过下面循环把 str 对象的每一个字符置为 ‘*’：</p>
+<pre><code>for (string::size_type ix = 0; ix != str.size(); ++ix)
+    str[ix] = &apos;*&apos;;
+</code></pre><p>任何可产生整型值的表达式可用作下标操作符的索引。例如，假设 someval 和 someotherval 是两个整形对象，可以这样写：</p>
+<pre><code>str[someotherval * someval] = someval;
+</code></pre><p>虽然任何整型数值都可作为索引，但索引的实际数据类型却是类型 unsigned 类型 string::size_type。</p>
+<h3 id="string对象中字符的处理"><a href="#string对象中字符的处理" class="headerlink" title="string对象中字符的处理"></a>string对象中字符的处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">isalnum(c)</span><br><span class="line"></span><br><span class="line"> True if c is a letter or a digit.</span><br><span class="line"></span><br><span class="line">如果 c 是字母或数字，则为 True。</span><br><span class="line"></span><br><span class="line">isalpha(c)</span><br><span class="line"></span><br><span class="line"> true if c is a letter.</span><br><span class="line"></span><br><span class="line">如果 c 是字母，则为 true。</span><br><span class="line"></span><br><span class="line">iscntrl(c)</span><br><span class="line"></span><br><span class="line"> true if c is a control character.</span><br><span class="line"></span><br><span class="line">如果 c 是控制字符，则为 true </span><br><span class="line"></span><br><span class="line">isdigit(c)</span><br><span class="line"></span><br><span class="line"> true if c is a digit.</span><br><span class="line"></span><br><span class="line">如果 c 是数字，则为 true。</span><br><span class="line"></span><br><span class="line">isgraph(c)</span><br><span class="line"></span><br><span class="line"> true if c is not a space but is printable.</span><br><span class="line"></span><br><span class="line">如果 c 不是空格，但可打印，则为 true。</span><br><span class="line"></span><br><span class="line">islower(c)</span><br><span class="line"></span><br><span class="line"> true if c is a lowercase letter.</span><br><span class="line"></span><br><span class="line">如果 c 是小写字母，则为 true。</span><br><span class="line"></span><br><span class="line">isprint(c)</span><br><span class="line"></span><br><span class="line"> True if c is a printable character.</span><br><span class="line"></span><br><span class="line">如果 c 是可打印的字符，则为 true。</span><br><span class="line"></span><br><span class="line">ispunct(c)</span><br><span class="line"></span><br><span class="line"> True if c is a punctuation character.</span><br><span class="line"></span><br><span class="line">如果 c 是标点符号，则 true。</span><br><span class="line"></span><br><span class="line">isspace(c)</span><br><span class="line"></span><br><span class="line"> true if c is whitespace.</span><br><span class="line"></span><br><span class="line">如果 c 是空白字符，则为 true。</span><br><span class="line"></span><br><span class="line">isupper(c)</span><br><span class="line"></span><br><span class="line"> True if c is an uppercase letter.</span><br><span class="line"></span><br><span class="line">如果 c 是大写字母，则 true。</span><br><span class="line"></span><br><span class="line">isxdigit(c)</span><br><span class="line"></span><br><span class="line"> true if c is a hexadecimal digit.</span><br><span class="line"></span><br><span class="line">如果是 c 十六进制数，则为 true。</span><br><span class="line"></span><br><span class="line">tolower(c)</span><br><span class="line"></span><br><span class="line"> If c is an uppercase letter, returns its lowercase equivalent; otherwise returns c unchanged.</span><br><span class="line"></span><br><span class="line">如果 c 大写字母，返回其小写字母形式，否则直接返回 c。</span><br><span class="line"></span><br><span class="line">toupper(c)</span><br><span class="line"></span><br><span class="line"> If c is a lowercase letter, returns its uppercase equivalent; otherwise returns c unchanged.</span><br><span class="line"></span><br><span class="line">如果 c 是小写字母，则返回其大写字母形式，否则直接返回 c。</span><br></pre></td></tr></table></figure>
+<p>这些函数都在 cctype 头文件中定义。</p>
+<h2 id="3-3-标准库-vector-类型"><a href="#3-3-标准库-vector-类型" class="headerlink" title="3.3. 标准库 vector 类型"></a>3.3. 标准库 vector 类型</h2><p>vector 是<code>同一种类型的对象的集合</code>，每个对象都有一个对应的整数索引值。我们把 vector 称为容器，是因为它可以包含其他对象。一个容器中的所有对象都必须是同一种类型的。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>vector 不是一种数据类型，而只是一个类模板，可用来定义任意多种数据类型。vector 类型的每一种都指定了其保存元素的类型。因此，vector<int> 和 vector<string> 都是数据类型。</string></int></p>
+<p>初始化方法：</p>
+<table>
+<thead>
+<tr>
+<th>vector<t> v1;</t></th>
+<th>vector 保存类型为 T 对象。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vector<t> v2(v1);</t></td>
+<td>v2 是 v1 的一个副本。</td>
+</tr>
+<tr>
+<td>vector<t> v3(n, i);</t></td>
+<td>v3 包含 n 个值为 i 的元素。</td>
+</tr>
+<tr>
+<td>vector<t> v4(n);</t></td>
+<td>v4 含有值初始化的元素的 n 个副本。（依据类型初始值）</td>
+</tr>
+</tbody>
+</table>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>vector 对象（以及其他标准库容器对象）的重要属性就在于可以在运行时高效地添加元素。因为 vector 增长的效率高，在元素值已知的情况下，最好是动态地添加元素。</p>
+<h3 id="vector对象的操作"><a href="#vector对象的操作" class="headerlink" title="vector对象的操作"></a>vector对象的操作</h3><table>
+<thead>
+<tr>
+<th>v.empty()</th>
+<th>如果 v 为空，则返回 true，否则返回 false。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v.size()</td>
+<td>返回 v 中元素的个数。</td>
+</tr>
+<tr>
+<td><code>v.push_back(t)</code></td>
+<td>在 v 的末尾增加一个值为 t 的元素。</td>
+</tr>
+<tr>
+<td>v[n]</td>
+<td>返回 v 中位置为 n 的元素。</td>
+</tr>
+<tr>
+<td>v1 = v2</td>
+<td>把 v1 的元素替换为 v2 中元素的副本。</td>
+</tr>
+<tr>
+<td>v1 == v2</td>
+<td>如果 v1 与 v2 相等，则返回 true。</td>
+</tr>
+<tr>
+<td>!=, &lt;, &lt;=,</td>
+<td>保持这些操作符惯有的含义。</td>
+</tr>
+</tbody>
+</table>
+<p>成员函数 size 返回相应 vector 类定义的 size_type 的值。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>使用 size_type 类型时，必须指出该类型是在哪里定义的。vector 类型总是包括总是包括 vector 的元素类型：</p>
+<pre><code>vector&lt;int&gt;::size_type        // ok
+vector::size_type            // error
+</code></pre><p>下标操作不添加元素。</p>
+<h2 id="3-4-迭代器简介"><a href="#3-4-迭代器简介" class="headerlink" title="3.4. 迭代器简介"></a>3.4. 迭代器简介</h2><p>除了使用下标来访问 vector 对象的元素外，标准库还提供了另一种访问元素的方法：使用迭代器（iterator）。迭代器是一种检查容器内元素并遍历元素的数据类型。</p>
+<p>标准库为每一种标准容器（包括 vector）定义了一种迭代器类型。迭代器类型提供了比下标操作更通用化的方法：<code>所有的标准库容器都定义了相应的迭代器类型，而只有少数的容器支持下标操作</code>。因为迭代器对所有的容器都适用，现代 C++ 程序更倾向于使用迭代器而不是下标操作访问容器元素，即使对支持下标操作的 vector 类型也是这样。</p>
+<p>每种容器都定义了一对命名为 begin 和 end 的函数，用于返回迭代器。如果容器中有元素的话，由 begin 返回的迭代器指向第一个元素：</p>
+<pre><code>vector&lt;int&gt;::iterator iter = ivec.begin();
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>由 end 操作返回的迭代器指向 vector 的“末端元素的下一个”。“超出末端迭代器”（off-the-end iterator）。表明它指向了一个不存在的元素。如果 vector 为空，begin 返回的迭代器与 end 返回的迭代器相同。由 end 操作返回的迭代器并不指向 vector 中任何实际的元素，相反，它只是起一个哨兵（sentinel）的作用，表示我们已处理完 vector 中所有元素。</p>
+<p>迭代器类型可使用解引用操作符（dereference operator）（*）来访问迭代器所指向的元素：</p>
+<pre><code>*iter = 0;
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>每种容器类型还定义了一种名为 const_iterator 的类型，该类型只能用于读取容器内元素，但不能改变其值。</p>
+<h3 id="迭代器的算数操作"><a href="#迭代器的算数操作" class="headerlink" title="迭代器的算数操作"></a>迭代器的算数操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iter + n</span><br><span class="line"></span><br><span class="line">iter - n</span><br><span class="line"></span><br><span class="line">iter1 - iter2</span><br></pre></td></tr></table></figure>
+<h2 id="3-5-标准库-bitset"><a href="#3-5-标准库-bitset" class="headerlink" title="3.5. 标准库 bitset"></a>3.5. 标准库 bitset</h2><p>bitset初始化：</p>
+<table>
+<thead>
+<tr>
+<th>bitset<n> b;</n></th>
+<th>b 有 n 位，每位都 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bitset<n> b(u);</n></td>
+<td>b 是 unsigned long 型 u 的一个副本</td>
+</tr>
+<tr>
+<td>bitset<n> b(s);</n></td>
+<td>b 是 string 对象 s 中含有的位串的副本</td>
+</tr>
+<tr>
+<td>bitset<n> b(s, pos, n);</n></td>
+<td>b 是 s 中从位置 pos 开始的&nbps;n 个位的副本</td>
+</tr>
+</tbody>
+</table>
+<p>当用 unsigned long 值作为 bitset 对象的初始值时，该值将转化为二进制的位模式。而 bitset 对象中的位集作为这种位模式的副本。如果 bitset 类型长度大于 unsigned long 值的二进制位数，则其余的高阶位将置为 0；如果 bitset 类型长度小于 unsigned long 值的二进制位数，则只使用 unsigned 值中的低阶位，超过 bistset 类型长度的高阶位将被丢弃。</p>
+<p>在 32 位 unsigned long 的机器上，十六进制值 0xffff 表示为二进制位就是十六个 1 和十六个 0（每个 0xf 可表示为 1111）。可以用 0xffff 初始化 bitset 对象：</p>
+<pre><code>// bitvec1 is smaller than the initializer
+bitset&lt;16&gt; bitvec1(0xffff);          // bits 0 ... 15 are set to 1
+// bitvec2 same size as initializer
+bitset&lt;32&gt; bitvec2(0xffff);          // bits 0 ... 15 are set to 1; 16 ... 31 are 0
+// on a 32-bit machine, bits 0 to 31 initialized from 0xffff
+bitset&lt;128&gt; bitvec3(0xffff);         // bits 32 through 127 initialized to zero
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>当用 string 对象初始化 bitset 对象时，string 对象直接表示为位模式。从 string 对象读入位集的顺序是从右向左（from right to left）：</p>
+<pre><code>string strval(&quot;1100&quot;);
+bitset&lt;32&gt; bitvec4(strval);
+</code></pre><p>bitvec4 的位模式中第 2 和 3 的位置为 1，其余位置都为 0。如果 string 对象的字符个数小于 bitset 类型的长度，则高阶位置为 0。</p>
+<p>string 对象和 bitsets 对象之间是反向转化的：string 对象的最右边字符（即下标最大的那个字符）用来初始化 bitset 对象的低阶位（即下标为 0 的位）。当用 string 对象初始化 bitset 对象时，记住这一差别很重要。</p>
+<p>不一定要把整个 string 对象都作为 bitset 对象的初始值。相反，可以只用某个子串作为初始值：</p>
+<pre><code>string str(&quot;1111111000000011001101&quot;);
+bitset&lt;32&gt; bitvec5(str, 5, 4); // 4 bits starting at str[5], 1100
+bitset&lt;32&gt; bitvec6(str, str.size() - 4);     // use last 4 characters
+</code></pre><p>这里用 str 从 str[5] 开始包含四个字符的子串来初始化 bitvec5。照常，初始化 bitset 对象时总是从子串最右边结尾字符开始的，bitvec5 的从 3 到 0 的二进制位置为 1100 ，其他二进制位都置为 0。如果省略第三个参数则意味着取从开始位置一直到 string 末尾的所有字符。本例中，取出 str 末尾的四位来对 bitvec6 的低四位进行初始化。bitvec6 其余的位初始化为 0。</p>
+<table>
+<thead>
+<tr>
+<th>b.any()</th>
+<th>b 中是否存在置为 1 的二进制位？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b.none()</td>
+<td>Are no bits in b on?</td>
+</tr>
+<tr>
+<td>b.count()</td>
+<td>b 中不存在置为 1 的二进制位吗？</td>
+</tr>
+<tr>
+<td>b.size()</td>
+<td>b 中置为 1 的二进制位的个数（返回类型为size_t）</td>
+</tr>
+<tr>
+<td>b[pos]</td>
+<td>访问 b 中在 pos 处二进制位</td>
+</tr>
+<tr>
+<td>b.test(pos)</td>
+<td>b 中在 pos 处的二进制位置为 1</td>
+</tr>
+<tr>
+<td>b.set()</td>
+<td>Turn on all bits in b</td>
+</tr>
+<tr>
+<td>b.set(pos)</td>
+<td>把 b 中在 pos 处的二进制位置为 1</td>
+</tr>
+<tr>
+<td>b.reset()</td>
+<td>把 b 中所有二进制位都置为 0</td>
+</tr>
+<tr>
+<td>b.reset(pos)</td>
+<td>把 b 中在 pos 处的二进制位置为 0</td>
+</tr>
+<tr>
+<td>b.flip()</td>
+<td>把 b 中所有二进制位逐位取反</td>
+</tr>
+<tr>
+<td>b.flip(pos)</td>
+<td>把 b 中在 pos 处的二进制位取反</td>
+</tr>
+<tr>
+<td>b.to_ulong()</td>
+<td>把 b 中在 pos 处的二进制位取反</td>
+</tr>
+<tr>
+<td>os &lt;&lt; b</td>
+<td>把 b 中的位集输出到 os 流</td>
+</tr>
+</tbody>
+</table>
+<h1 id="4数组和指针"><a href="#4数组和指针" class="headerlink" title="4数组和指针"></a>4数组和指针</h1><hr>
+<p>数组的长度是固定的。数组一经创建，就不允许添加新的元素。</p>
+<p><code>现代 C++ 程序应尽量使用 vector 和迭代器类型，而避免使用低级的数组和指针。设计良好的程序只有在强调速度时才在类实现的内部使用数组和指针。</code></p>
+<p>数组的维数必须用值大于等于1的常量表达式定义（第 2.7 节）。此常量表达式只能包含整型字面值常量、枚举常量（第 2.7 节）或者用常量表达式初始化的整型 const 对象。非 const 变量以及要到运行阶段才知道其值的 const 变量都不能用于定义数组的维数。</p>
+<p>数组的维数必须在一对方括号 [] 内指定：</p>
+<pre><code> // both buf_size and max_files are const
+ const unsigned buf_size = 512, max_files = 20;
+ int staff_size = 27;            // nonconst
+ const unsigned sz = get_size();  // const value not known until run time
+ char input_buffer[buf_size];     // ok: const variable
+ string fileTable[max_files + 1]; // ok: constant expression
+`double salaries[staff_size];     // error: non const variable`
+ int test_scores[get_size()];     // error: non const expression
+ int vals[sz];                    // error: size not known until run time
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>非const变量不能初始化数组。</p>
+<pre><code>char ca1[] = {&apos;C&apos;, &apos;+&apos;, &apos;+&apos;};                // no null
+char ca2[] = {&apos;C&apos;, &apos;+&apos;, &apos;+&apos;, &apos;\0&apos;};         // explicit null
+char ca3[] = &quot;C++&quot;;     // null terminator added automatically
+</code></pre><p>ca1 的维数是 3，而 ca2 和 ca3 的维数则是 4。使用一组字符字面值初始化字符数组时，一定要记得添加结束字符串的空字符。例如，下面的初始化将导致编译时的错误：</p>
+<pre><code>const char ch3[6] = &quot;Daniel&quot;; // error: Daniel is 7 elements
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>与vector不同，一个数组不能用另外一个数组初始化，也不能将一个数组赋值给另一个数组，这些操作都是非法的：</p>
+<pre><code>int ia[] = {0, 1, 2}; // ok: array of ints
+int ia2[](ia);        // error: cannot initialize one array with another
+
+int main()
+{
+    const unsigned array_size = 3;
+    int ia3[array_size]; // ok: but elements are uninitialized!
+
+    ia3 = ia;           //  error: cannot assign one array to another
+    return 0;
+}
+</code></pre><p>数组下标的正确类型则是 <code>size_t</code>。</p>
+<h2 id="4-2指针的引入"><a href="#4-2指针的引入" class="headerlink" title="4.2指针的引入"></a>4.2指针的引入</h2><p>C++ 语言使用 * 符号把一个标识符声明为指针：</p>
+<pre><code>vector&lt;int&gt;   *pvec;      // pvec can point to a vector&lt;int&gt;
+int           *ip1, *ip2; // ip1 and ip2 can point to an int
+string        *pstring;   // pstring can point to a string
+double        *dp;        // dp can point to a double
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span><strong>另一种声明指针的风格：</strong> 在定义指针变量时，可用空格将符号 * 与其后的标识符分隔开来。下面的写法是合法的：</p>
+<pre><code>string* ps; // legal but can be misleading
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string* ps1, ps2; // ps1 is a pointer to string,  ps2 is a string</span><br></pre></td></tr></table></figure>
+<p>实际上只把 ps1 定义为指针，而 ps2 并非指针，只是一个普通的 string 对象而已。如果需要在一个声明语句中定义两个指针，必须在每个变量标识符前再加符号 * 声明：</p>
+<pre><code>string* ps1, *ps2; // both ps1 and ps2 are pointers to string
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>一个有效的指针必然是以下三种状态之一：保存一个特定对象的地址；指向某个对象后面的另一对象；或者是0值。若指针保存0值，表明它不指向任何对象。</p>
+<p>对指针进行初始化或赋值只能使用以下四种类型的值：</p>
+<ol>
+<li>0 值常量表达式（第 2.7 节），例如，在编译时可获得 0 值的整型 const 对象或字面值常量 0。</li>
+<li>类型匹配的对象的地址。</li>
+<li>另一对象末的下一地址。</li>
+<li>同类型的另一个有效指针。</li>
+</ol>
+<p>把 int 型变量赋给指针是非法的，尽管此 int 型变量的值可能为 0。但允许把数值 0 或在编译时可获得 0 值的 const 量赋给指针：</p>
+<pre><code>int ival;
+int zero = 0;
+const int c_ival = 0;
+int *pi = ival; // error: pi initialized from int value of ival
+pi = zero;      // error: pi assigned int value of zero
+pi = c_ival;    // ok: c_ival is a const with compile-time value of 0
+pi = 0;         // ok: directly initialize to literal constant 0
+</code></pre><h3 id="void指针"><a href="#void指针" class="headerlink" title="void指针"></a>void指针</h3><p>C++ 提供了一种特殊的指针类型 void*，它可以保存任何类型对象的地址：</p>
+<pre><code>double obj = 3.14;
+double *pd = &amp;obj;
+// ok: void* can hold the address value of any data pointer type
+void *pv = &amp;obj;       // obj can be an object of any type
+pv = pd;               // pd can be a pointer to any type
+</code></pre><p>void* 表明该指针与一地址值相关，但不清楚存储在此地址上的对象的类型。</p>
+<p>C++ 还支持对这两个指针做减法操作：</p>
+<pre><code>ptrdiff_t n = ip2 - ip; // ok: distance between the pointers
+</code></pre><p>结果是 4，这两个指针所指向的元素间隔为 4 个对象。两个指针减法操作的结果是标准库类型（library type）ptrdiff_t 的数据。与 size_t 类型一样，ptrdiff_t 也是一种与机器相关的类型，在 cstddef 头文件中定义。size_t 是 unsigned 类型，而 ptrdiff_t 则是 signed 整型。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>ia[0] 是一个使用数组名的表达式。在使用下标访问数组时，实际上是对指向数组元素的指针做下标操作。只要指针指向数组元素，就可以对它进行下标操作：</p>
+<pre><code>int *p = &amp;ia[2];     // ok: p points to the element indexed by 2
+int j = p[1];        // ok: p[1] equivalent to *(p + 1),
+                     //    p[1] is the same element as ia[3]
+int k = p[-2];       // ok: p[-2] is the same element as ia[0]
+</code></pre><p>C++ 允许计算数组或对象的超出末端的地址，但不允许对此地址进行解引用操作。而计算数组超出末端位置之后或数组首地址之前的地址都是不合法的。</p>
+<h3 id="指向const的指针"><a href="#指向const的指针" class="headerlink" title="指向const的指针"></a>指向const的指针</h3><p>到目前为止，我们使用指针来修改其所指对象的值。但是如果指针指向 const 对象，则不允许用指针来改变其所指的 const 值。为了保证这个特性，C++ 语言强制要求指向 const 对象的指针也必须具有 const 特性：</p>
+<pre><code>const double pi = 3.14;
+double *ptr = &amp;pi;        // error: ptr is a plain pointer
+const double *cptr = &amp;pi; // ok: cptr is a pointer to const
+</code></pre><p>不能使用 void<em> 指针（第 4.2.2 节）保存 const 对象的地址，而必须使用 const void</em> 类型的指针保存 const 对象的地址：</p>
+<p>允许把非 const 对象的地址赋给指向 const 对象的指针，但不能通过指针来修改对象。</p>
+<h3 id="const指针"><a href="#const指针" class="headerlink" title="const指针"></a>const指针</h3><p>除指向 const 对象的指针外，C++ 语言还提供了 const 指针——本身的值不能修改：</p>
+<pre><code>int errNumb = 0;
+int *const curErr = &amp;errNumb; // curErr is a constant pointer
+</code></pre><p>我们可以从右向左把上述定义语句读作“curErr 是指向 int 型对象的 const 指针”。与其他 const 量一样，const 指针的值不能修改，这就意味着不能使 curErr 指向其他对象。任何企图给 const 指针赋值的行为（即使给 curErr 赋回同样的值）都会导致编译时的错误：</p>
+<h2 id="4-3-C风格字符串与动态数组"><a href="#4-3-C风格字符串与动态数组" class="headerlink" title="4.3 C风格字符串与动态数组"></a>4.3 C风格字符串与动态数组</h2><p>字符串字面值的类型就是 const char 类型的数组。</p>
+<p>数组类型的变量有三个重要的限制：数组长度固定不变，在编译时必须知道其长度，数组只在定义它的块语句内存在。实际的程序往往不能忍受这样的限制——它们需要在运行时动态地分配数组。虽然数组长度是固定的，但动态分配的数组不必在编译时知道其长度，可以（通常也是）在运行时才确定数组长度。与数组变量不同，动态分配的数组将一直存在，直到程序显式释放它为止。</p>
+<p>每一个程序在执行时都占用一块可用的内存空间，用于存放动态分配的对象，此内存空间称为程序的自由存储区或堆。C 语言程序使用一对标准库函数 malloc 和 free 在自由存储区中分配存储空间，而 C++ 语言则使用 new 和 delete 表达式实现相同的功能。</p>
+<p>动态分配数组时，如果数组元素具有类类型，将使用该类的默认构造函数（第 2.3.4 节）实现初始化；如果数组元素是内置类型，则无初始化：</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>如果我们在自由存储区中创建的数组存储了内置类型的 const 对象，则必须为这个数组提供初始化：因为数组元素都是 const 对象，无法赋值。实现这个要求的唯一方法是对数组做值初始化：</p>
+<pre><code>// error: uninitialized const array
+const int *pci_bad = new const int[100];
+// ok: value-initialized const array
+const int *pci_ok = new const int[100]();
+</code></pre><h1 id="5表达式"><a href="#5表达式" class="headerlink" title="5表达式"></a>5表达式</h1><hr>
+<h2 id="5-1算数操作符"><a href="#5-1算数操作符" class="headerlink" title="5.1算数操作符"></a>5.1算数操作符</h2><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span><code>C++提供了一元操作符和二元操作符两种操作符。除此之外，C++ 还提供了一个使用三个操作数的三元操作符（ternary operator）：条件操作符。</code></p>
+<p>对两个整数做除法，结果仍为整数，如果它的商包含小数部分，则小数部分会被截除。</p>
+<p>操作符 % 称为“求余（remainder）”或“求模（modulus）”操作符，用于计算左操作数除以右操作数的余数。<code>该操作符的操作数只能为整型，包括 bool、char、short 、int 和 long 类型，以及对应的 unsigned 类型。</code></p>
+<p>如果两个操作数为正，除法（/）和求模（%）操作的结果也是正数（或零）；如果两个操作数都是负数，除法操作的结果为正数（或零），而求模操作的结果则为负数（或零）；如果只有一个操作数为负数，这两种操作的结果取决于机器；求模结果的符号也取决于机器，而除法操作的值则是负数（或零）。</p>
+<p>当只有一个操作数为负数时，求模操作结果值的符号可依据分子（被除数）或分母（除数）的符号而定。如果求模的结果随分子的符号，则除出来的值向零一侧取整；如果求模与分母的符号匹配，则除出来的值向负无穷一侧取整。</p>
+<h2 id="5-2关系操作符和逻辑操作符"><a href="#5-2关系操作符和逻辑操作符" class="headerlink" title="5.2关系操作符和逻辑操作符"></a>5.2关系操作符和逻辑操作符</h2><h2 id="5-3位操作符"><a href="#5-3位操作符" class="headerlink" title="5.3位操作符"></a>5.3位操作符</h2><p>~        bitwise NOT（位求反）</p>
+<p>&lt;&lt;        left shift（左移）</p>
+<p>>>    right shift（右移）</p>
+<p>&amp;        bitwise AND（位与）</p>
+<p>^        bitwise XOR（位异或）</p>
+<p>|        bitwise OR（位或）</p>
+<p><code>输入输出标准库（IO library）分别重载了位操作符 &gt;&gt; 和 &lt;&lt; 用于输入和输出。</code></p>
+<h2 id="5-4赋值操作符"><a href="#5-4赋值操作符" class="headerlink" title="5.4赋值操作符"></a>5.4赋值操作符</h2><p>赋值操作符的左操作数必须是非 const 的左值。下面的赋值语句是不合法的：</p>
+<pre><code> int i, j, ival;
+ const int ci = i;  // ok: initialization not assignment
+ 1024 = ival;       // error: literals are rvalues
+ i + j = ival;      // error: arithmetic expressions are rvalues
+ ci = ival;         // error: can&apos;t write to ci
+
+
+
+int ival, jval;
+ival = jval = 0; // ok: each assigned 0
+</code></pre><p>与其他二元操作符不同，赋值操作具有右结合特性。当表达式含有多个赋值操作符时，从右向左结合。上述表达式，将右边赋值操作的结果（也就是 jval）赋给 ival。多个赋值操作中，各对象必须具有相同的数据类型，或者具有可转换（第 5.12 节）为同一类型的数据类型。</p>
+<h2 id="5-5自增和自减操作符"><a href="#5-5自增和自减操作符" class="headerlink" title="5.5自增和自减操作符"></a>5.5自增和自减操作符</h2><p>建议：只有在必要时才使用后置操作符。道理很简单：因为前置操作需要做的工作更少，只需加 1 后返回加 1 后的结果即可。而后置操作符则必须先保存操作数原来的值，以便返回未加 1 之前的值作为操作的结果。对于 int 型对象和指针，编译器可优化掉这项额外工作。但是对于更多的复杂迭代器类型，这种额外工作可能会花费更大的代价。因此，养成使用前置操作这个好习惯，就不必操心性能差异的问题。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>建议使用使用解引用和自增操作的组合形式：</p>
+<pre><code>vector&lt;int&gt;::iterator iter = ivec.begin();
+// prints 10 9 8 ... 1
+ while (iter != ivec.end())
+     cout &lt;&lt; *iter++ &lt;&lt; endl; // iterator postfix increment
+</code></pre><p>由于后自增操作的优先级高于解引用操作，因此 <em>iter++ 等效于 </em>(iter++)。子表达式 iter++ 使 iter 加 1，然后返回 iter 原值的副本作为该表达式的结果。因此，解引用操作 * 的操作数是 iter 未加 1 前的副本。</p>
+<h2 id="5-6箭头操作符"><a href="#5-6箭头操作符" class="headerlink" title="5.6箭头操作符"></a>5.6箭头操作符</h2><p>假设有一个指向类类型对象的指针（或迭代器），下面的表达式相互等价：</p>
+<pre><code>(*p).foo; // dereference p to get an object and fetch its member named foo
+p-&gt;foo;   // equivalent way to fetch the foo from the object to which p points
+</code></pre><h2 id="5-7条件操作符"><a href="#5-7条件操作符" class="headerlink" title="5.7条件操作符"></a>5.7条件操作符</h2><p>条件操作符是 C++ 中唯一的三元操作符，它允许将简单的 if-else 判断语句嵌入表达式中。条件操作符的语法格式为：</p>
+<pre><code>cond ? expr1 : expr2;
+</code></pre><p>其中，cond 是一个条件判断表达式（第 1.4.1 节）。条件操作符首先计算 cond 的值，如果 cond 的值为 0，则条件为 false；如果 cond 非 0，则条件为 true。无论如何，cond 总是要被计算的。然后，条件为 true 时计算 expr1 ，否则计算 expr2 。和逻辑与、逻辑或（&amp;&amp; 和 ||）操作符一样，条件操作符保证了上述操作数的求解次序。<code>expr1 和 expr2 中只有一个表达式被计算。</code></p>
+<h2 id="5-8-sizeof-操作符"><a href="#5-8-sizeof-操作符" class="headerlink" title="5.8. sizeof 操作符"></a>5.8. sizeof 操作符</h2><p>sizeof 操作符的作用是返回一个对象或类型名的长度，返回值的类型为<code>size_t</code>（第 3.5.2 节），长度的单位是字节。<code>size_t</code>表达式的结果是编译时常量，该操作符有以下三种语法形式：</p>
+<pre><code>sizeof (type name);
+sizeof (expr);
+sizeof expr;
+</code></pre><p>将 sizeof 应用在表达式 expr 上，将获得该表达式的结果的类型长度。</p>
+<p>使用 sizeof 的结果部分地依赖所涉及的类型：</p>
+<ul>
+<li>对 char 类型或值为 char 类型的表达式做 sizeof 操作保证得 1。</li>
+<li>对引用类型做 sizeof 操作将返回存放此引用类型对象所需的内在空间大小。</li>
+<li>对指针做 sizeof 操作将返回存放指针所需的内在大小；注意，如果要获取该指针所指向对象的大小，则必须对指针进行引用。</li>
+<li>对数组做 sizeof 操作等效于将对其元素类型做 sizeof 操作的结果乘上数组元素的个数。</li>
+</ul>
+<h2 id="5-9逗号操作符"><a href="#5-9逗号操作符" class="headerlink" title="5.9逗号操作符"></a>5.9逗号操作符</h2><p>逗号表达式是一组由逗号分隔的表达式，这些表达式从左向右计算。逗号表达式的结果是其最右边表达式的值。如果最右边的操作数是左值，则逗号表达式的值也是左值。此类表达式通常用于for循环：</p>
+<pre><code>int cnt = ivec.size();
+// add elements from size... 1 to ivec
+for(vector&lt;int&gt;::size_type ix = 0;
+                ix != ivec.size(); ++ix, --cnt)
+    ivec[ix] = cnt;
+</code></pre><h2 id="5-11new和delete表达式"><a href="#5-11new和delete表达式" class="headerlink" title="5.11new和delete表达式"></a>5.11new和delete表达式</h2><p>定义变量时，必须指定其数据类型和名字。而动态创建对象时，只需指定其数据类型，而不必为该对象命名。取而代之的是，new 表达式返回指向新创建对象的指针，我们通过该指针来访问此对象：</p>
+<pre><code>int i;              // named, uninitialized int variable
+int *pi = new int;  // pi points to dynamically allocated,
+                    // unnamed, uninitialized int
+</code></pre><p>如果不提供显式初始化，动态创建的对象与在函数内定义的变量初始化方式相同（第 2.3.4 节）。对于类类型的对象，用该类的默认构造函数初始化；而内置类型的对象则无初始化。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>C++ 保证：删除 0 值的指针是安全的。删除指针后，该指针变成悬垂指针。悬垂指针指向曾经存放对象的内存，但该对象已经不再存在了。悬垂指针往往导致程序错误，而且很难检测出来。一旦删除了指针所指向的对象，立即将指针置为 0，这样就非常清楚地表明指针不再指向任何对象。</p>
+<h1 id="5-12类型转换"><a href="#5-12类型转换" class="headerlink" title="5.12类型转换"></a>5.12类型转换</h1><p>C++ 定义了算术类型之间的内置转换以尽可能防止精度损失。通常，如果表达式的操作数分别为整型和浮点型，则整型的操作数被转换为浮点型。</p>
+<h2 id="显式转换"><a href="#显式转换" class="headerlink" title="显式转换"></a>显式转换</h2><p>显式转换也称为强制类型转换（cast），包括以下列名字命名的强制类型转换操作符：<code>static_cast、dynamic_cast、const_cast 和 reinterpret_cast。</code></p>
+<ol>
+<li>dynamic_cast 支持运行时识别指针或引用所指向的对象。</li>
+<li>const_cast ，顾名思义，将转换掉表达式的 const 性质。</li>
+<li>编译器隐式执行的任何类型转换都可以由 static_cast 显式完成。</li>
+<li>reinterpret_cast 通常为操作数的位模式提供较低层次的重新解释。</li>
+</ol>
+<h1 id="6语句"><a href="#6语句" class="headerlink" title="6语句"></a>6语句</h1><h2 id="6-1-简单语句"><a href="#6-1-简单语句" class="headerlink" title="6.1. 简单语句"></a>6.1. 简单语句</h2><p>如果在程序的某个地方，语法上需要一个语句，但逻辑上并不需要，此时应该使用<code>空语句</code>。这种用法常见于在循环条件判断部分就能完成全部循环工作的情况。</p>
+<h2 id="6-3复合语句"><a href="#6-3复合语句" class="headerlink" title="6.3复合语句"></a>6.3复合语句</h2><p>复合语句，通常被称为块，是用一对花括号括起来的语句序列（也可能是空的）。块标识了一个作用域，在块中引入的名字只能在该块内部或嵌套在块中的子块里访问。通常，一个名字只从其定义处到该块的结尾这段范围内可见。</p>
+<p><code>与其他大多数语句不同，块并不是以分号结束的。</code></p>
+<h2 id="6-5if语句"><a href="#6-5if语句" class="headerlink" title="6.5if语句"></a>6.5if语句</h2><h2 id="6-6-switch-语句"><a href="#6-6-switch-语句" class="headerlink" title="6.6. switch 语句"></a>6.6. switch 语句</h2><p> char ch;</p>
+<pre><code>// initialize counters for each vowel
+int aCnt = 0, eCnt = 0, iCnt = 0,
+    oCnt = 0, uCnt = 0;
+while (cin &gt;&gt; ch) {
+    // if ch is a vowel, increment the appropriate counter
+    switch (ch) {
+        case &apos;a&apos;:
+            ++aCnt;
+            break;
+        case &apos;e&apos;:
+            ++eCnt;
+            break;
+        case &apos;i&apos;:
+            ++iCnt;
+            break;
+        case &apos;o&apos;:
+            ++oCnt;
+            break;
+        case &apos;u&apos;:
+            ++uCnt;
+            break;
+    }
+}
+// print results
+cout  &lt;&lt; &quot;Number of vowel a: \t&quot; &lt;&lt; aCnt &lt;&lt; &apos;\n&apos;
+      &lt;&lt; &quot;Number of vowel e: \t&quot; &lt;&lt; eCnt &lt;&lt; &apos;\n&apos;
+      &lt;&lt; &quot;Number of vowel i: \t&quot; &lt;&lt; iCnt &lt;&lt; &apos;\n&apos;
+      &lt;&lt; &quot;Number of vowel o: \t&quot; &lt;&lt; oCnt &lt;&lt; &apos;\n&apos;
+      &lt;&lt; &quot;Number of vowel u: \t&quot; &lt;&lt; uCnt &lt;&lt; endl;
+</code></pre><p>default 标号提供了相当于 else 子句的功能。如果所有的 case 标号与 switch 表达式的值都不匹配，并且 default 标号存在，则执行 default 标号后面的语句。</p>
+<p>case 标号必须是整型常量表达式。</p>
+<p>对于 switch 结构，只能在它的最后一个 case 标号或 default 标号后面定义变量：</p>
+<h2 id="6-7while语句"><a href="#6-7while语句" class="headerlink" title="6.7while语句"></a>6.7while语句</h2><p><code>在循环条件中定义的变量在每次循环里都要经历创建和撤销的过程。</code></p>
+<h2 id="6-8for循环语句"><a href="#6-8for循环语句" class="headerlink" title="6.8for循环语句"></a>6.8for循环语句</h2><h2 id="6-9do-while语句"><a href="#6-9do-while语句" class="headerlink" title="6.9do while语句"></a>6.9do while语句</h2><h2 id="6-10break语句"><a href="#6-10break语句" class="headerlink" title="6.10break语句"></a>6.10break语句</h2><p>break 语句用于结束最近的 while、do while、for 或 switch 语句，并将程序的执行权传递给紧接在被终止语句之后的语句。</p>
+<h2 id="6-11-continue-语句"><a href="#6-11-continue-语句" class="headerlink" title="6.11. continue 语句"></a>6.11. continue 语句</h2><p>continue 语句导致最近的循环语句的当次迭代提前结束。continue 语句只能出现在 for、while 或者 do while 循环中，包括嵌套在这些循环内部的块语句中。</p>
+<h2 id="6-12-goto-语句"><a href="#6-12-goto-语句" class="headerlink" title="6.12 goto 语句"></a>6.12 goto 语句</h2><h2 id="6-13-try-块和异常处理"><a href="#6-13-try-块和异常处理" class="headerlink" title="6.13 try 块和异常处理"></a>6.13 try 块和异常处理</h2><p>try 块的通用语法形式是：</p>
+<pre><code>try {
+    program-statements
+} catch (exception-specifier) {
+    handler-statements
+} catch (exception-specifier) {
+    handler-statements
+} //...
+</code></pre><p>try 块以关键字 try 开始，后面是用花括号起来的语句序列块。try 块后面是一个或多个 catch 子句。每个 catch 子句包括三部分：关键字 catch，圆括号内单个类型或者单个对象的声明——称为异常说明符，以及通常用花括号括起来的语句块。如果选择了一个 catch 子句来处理异常，则执行相关的块语句。一旦 catch 子句执行结束，程序流程立即继续执行紧随着最后一个 catch 子句的语句。</p>
+<h2 id="6-14-使用预处理器进行调试"><a href="#6-14-使用预处理器进行调试" class="headerlink" title="6.14. 使用预处理器进行调试"></a>6.14. 使用预处理器进行调试</h2><h1 id="7-函数（※）"><a href="#7-函数（※）" class="headerlink" title="7 函数（※）"></a>7 函数（※）</h1><h2 id="7-1-函数的定义"><a href="#7-1-函数的定义" class="headerlink" title="7.1. 函数的定义"></a>7.1. 函数的定义</h2><p>函数由函数名以及一组操作数类型唯一地表示。函数的操作数，也即形参，在一对圆括号中声明，形参与形参之间以逗号分隔。函数执行的运算在一个称为函数体的块语句中定义。每一个函数都有一个相关联的返回类型。</p>
+<p>C++ 语言使用<code>调用操作符</code>（即一对圆括号）实现函数的调用。</p>
+<p>函数的返回类型可以是内置类型（如 int 或者 double）、类类型或复合类型（如 int&amp; 或 string*），还可以是 void 类型，表示该函数不返回任何值。函数不能返回另一个函数或者内置数组类型，但可以返回指向函数的指针，或指向数组元素的指针的指针。</p>
+<p><code>函数必须指定返回类型。</code></p>
+<p>函数形参表可以为空，但不能省略。没有任何形参的函数可以用空形参表或含有单个关键字 void 的形参表来表示。例如，下面关于 process 的声明是等价的：</p>
+<pre><code>void process() { /* ... */ }      // implicit void parameter list 
+void process(void){ /* ... */ }  // equivalent declaration
+</code></pre><p>形参表由一系列用逗号分隔的参数类型和（可选的）参数名组成。如果两个参数具有相同的类型，则其类型必须重复声明：</p>
+<pre><code>int manip(int v1, v2) { /* ... */ }      // error
+int manip(int v1, int v2) { /* ... */ }  // ok
+</code></pre><p><code>形参的初始化与变量的初始化一样：如果形参具有非引用类型，则复制实参的值，如果形参为引用类型，则它只是实参的别名。</code></p>
+<h2 id="7-2参数传递"><a href="#7-2参数传递" class="headerlink" title="7.2参数传递"></a>7.2参数传递</h2><h3 id="指针形参"><a href="#指针形参" class="headerlink" title="指针形参"></a>指针形参</h3><p>函数的形参可以是指针（第 4.2 节），此时将复制实参指针。与其他非引用类型的形参一样，该类形参的任何改变也仅作用于局部副本。如果函数将新指针赋给形参，主调函数使用的实参指针的值没有改变。</p>
+<p>事实上被复制的指针只影响对指针的赋值。如果函数形参是非 const 类型的指针，则函数可通过指针实现赋值，修改指针所指向对象的值：</p>
+<pre><code>void reset(int *ip)
+{
+    *ip = 0; // changes the value of the object to which ip points
+    ip = 0;   // changes only the local value of ip; the argument is unchanged
+}
+
+
+
+void use_ptr(const int *p){
+     // use_ptr may read but not write to *p
+}
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>指针形参是指向 const 类型还是非 const 类型，将影响函数调用所使用的实参。我们既可以用 int<em> 也可以用 const int</em> 类型的实参调用 use_ptr 函数；但仅能将 int* 类型的实参传递给 reset 函数。这个差别来源于指针的初始化规则（第 4.2.5 节）。可以将指向 const 对象的指针初始化为指向非 const 对象，但不可以让指向非 const 对象的指针向 const 对象。</p>
+<h3 id="const-形参"><a href="#const-形参" class="headerlink" title="const 形参"></a>const 形参</h3><p><code>在调用函数时，如果该函数使用非引用的非 const 形参，则既可给该函数传递 const 实参也可传递非 const 的实参。</code></p>
+<p>如果将形参定义为非引用的 const 类型：</p>
+<pre><code>void fcn(const int i) { /* fcn can read but not write to i */ }
+</code></pre><p><code>则在函数中，不可以改变实参的局部副本。</code>由于实参仍然是以副本的形式传递，因此传递给 fcn 的既可以是 const 对象也可以是非 const 对象。</p>
+<h3 id="引用形参"><a href="#引用形参" class="headerlink" title="引用形参"></a>引用形参</h3><pre><code>void swap(int &amp;v1, int &amp;v2)
+{
+    int tmp = v2;
+    v2 = v1;
+    v1 = tmp;
+}
+</code></pre><p>与所有引用一样，引用形参直接关联到其所绑定的圣贤，而并非这些对象的副本。定义引用时，必须用与该引用绑定的对象初始化该引用。引用形参完全以相同的方式工作。每次调用函数，引用形参被创建并与相应实参关联。</p>
+<p>利用 const 引用避免复制。在向函数传递大型对象时，需要使用引用形参，这是引用形参适用的另一种情况。虽然复制实参对于内置数据类型的对象或者规模较小的类类型对象来说没有什么问题，但是对于大部分的类类型或者大型数组，它的效率（通常）太低了。</p>
+<h3 id="传递指向指针的引用"><a href="#传递指向指针的引用" class="headerlink" title="传递指向指针的引用"></a>传递指向指针的引用</h3><p>假设我们想编写一个与前面交换两个整数的 swap 类似的函数，实现两个指针的交换。已知需用 * 定义指针，用 &amp; 定义引用。现在，问题在于如何将这两个操作符结合起来以获得指向指针的引用。这里给出一个例子：</p>
+<pre><code>// swap values of two pointers to int
+void ptrswap(int *&amp;v1, int *&amp;v2)
+{
+    int *tmp = v2;
+    v2 = v1;
+    v1 = tmp;
+}
+</code></pre><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>形参</p>
+<pre><code>int *&amp;v1
+</code></pre><p>的定义应从右至左理解：v1 是一个引用，与指向 int 型对象的指针相关联。也就是说，v1 只是传递进 ptrswap 函数的任意指针的别名。</p>
+<h3 id="数组形参"><a href="#数组形参" class="headerlink" title="数组形参"></a>数组形参</h3><p>如果要编写一个函数，输出 int 型数组的内容，可用下面三种方式指定数组形参：</p>
+<pre><code>// three equivalent definitions of printValues
+void printValues(int*) { /* ... */ }
+void printValues(int[]) { /* ... */ }
+void printValues(int[10]) { /* ... */ }
+</code></pre><p>虽然不能直接传递数组，但是函数的形参可以写成数组的形式。虽然形参表示方式不同，但可将使用数组语法定义的形参看作指向数组元素类型的指针。上面的三种定义是等价的，形参类型都是 <code>int*</code>。</p>
+<p><code>编译器忽略为任何数组形参指定的长度。当编译器检查数组形参关联的实参时，它只会检查实参是不是指针、指针的类型和数组元素的类型时是否匹配，而不会检查数组的长度。</code></p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span><code>通过引用传递数组</code>    和其他类型一样，数组形参可声明为数组的引用。如果形参是数组的引用，编译器不会将数组实参转化为指针，而是传递数组的引用本身。在这种情况下，数组大小成为形参和实参类型的一部分。编译器检查数组的实参的大小与形参的大小是否匹配。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>和其他类型一样，数组形参可声明为数组的引用。如果形参是数组的引用，编译器不会将数组实参转化为指针，而是传递数组的引用本身。在这种情况下，<code>数组大小成为形参和实参类型的一部分。</code>编译器检查数组的实参的大小与形参的大小是否匹配：</p>
+<pre><code>// ok: parameter is a reference to an array; size of array is fixed
+void printValues(int (&amp;arr)[10]) { /* ... */ }
+int main()
+{
+    int i = 0, j[2] = {0, 1};
+    int k[10] = {0,1,2,3,4,5,6,7,8,9};
+    printValues(&amp;i); // error: argument is not an array of 10 ints
+    printValues(j);  // error: argument is not an array of 10 ints
+    printValues(k);  // ok: argument is an array of 10 ints
+    return 0;
+}
+</code></pre><p>这个版本的 printValues 函数只严格地接受含有 10 个 int 型数值的数组，这限制了哪些数组可以传递。然而，由于形参是引用，在函数体中依赖数组的大小是安全的：</p>
+<h2 id="7-3return语句"><a href="#7-3return语句" class="headerlink" title="7.3return语句"></a>7.3return语句</h2><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>返回类型不是 void 的函数必须返回一个值，但此规则有一个例外情况：允许主函数 main 没有返回值就可结束。如果程序控制执行到主函数 main 的最后一个语句都还没有返回，那么编译器会隐式地插入返回 0 的语句。</p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>当函数返回引用类型时，没有复制返回值。相反，返回的是对象本身。例如，考虑下面的函数，此函数返回两个 string 类型形参中较短的那个字符串的引用：</p>
+<pre><code>// find longer of two strings
+const string &amp;shorterString(const string &amp;s1, const string &amp;s2)
+{
+    return s1.size() &lt; s2.size() ? s1 : s2;
+}
+</code></pre><p><code>形参和返回类型都是指向 const string 对象的引用，调用函数和返回结果时，都没有复制这些 string 对象。但千万不要返回局部变量的引用</code></p>
+<p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>返回引用的函数返回一个左值。因此，这样的函数可用于任何要求使用左值的地方：</p>
+<pre><code>char &amp;get_val(string &amp;str, string::size_type ix)
+{
+    return str[ix];
+}
+int main()
+{
+    string s(&quot;a value&quot;);
+    cout &lt;&lt; s &lt;&lt; endl;   // prints a value
+    get_val(s, 0) = &apos;A&apos;; // changes s[0] to A
+
+    cout &lt;&lt; s &lt;&lt; endl;   // prints A value
+    return 0;
+}
+</code></pre><p>给函数返回值赋值可能让人惊讶，由于函数返回的是一个引用，因此这是正确的，该引用是被返回元素的同义词。</p>
+<p>如果不希望引用返回值被修改，返回值应该声明为 const：</p>
+<h2 id="7-4-函数声明"><a href="#7-4-函数声明" class="headerlink" title="7.4. 函数声明"></a>7.4. 函数声明</h2><p>函数声明由函数返回类型、函数名和形参列表组成。形参列表必须包括形参类型，但是不必对形参命名。这三个元素被称为函数原型，函数原型描述了函数的接口。</p>
+<h3 id="默认实参"><a href="#默认实参" class="headerlink" title="默认实参"></a>默认实参</h3><p>默认实参是通过给形参表中的形参提供明确的初始值来指定的。程序员可为一个或多个形参定义默认值。但是，如果有一个形参具有默认实参，那么，它后面所有的形参都必须有默认实参。</p>
+<pre><code>string screenInit(string::size_type height = 24,
+string::size_type width = 80,
+char background = &apos; &apos; );
+</code></pre><h2 id="静态局部对象"><a href="#静态局部对象" class="headerlink" title="静态局部对象"></a>静态局部对象</h2><p><span style="color:black"><i class="fa fa-asterisk  fa-spin fa-2x fa-fw"></i></span>一个变量如果位于函数的作用域内，但生命期跨越了这个函数的多次调用，这种变量往往很有用。则应该将这样的对象定义为 static（静态的）。static 局部对象确保不迟于在程序执行流程第一次经过该对象的定义语句时进行初始化。这种对象一旦被创建，在程序结束前都不会撤销。当定义静态局部对象的函数结束时，静态局部对象不会撤销。在该函数被多次调用的过程中，<code>静态局部对象会持续存在并保持它的值</code>。</p>
+<p>size_t count_calls()</p>
+<pre><code>{
+     static size_t ctr = 0; // value will persist across calls
+     return ++ctr;
+}
+int main()
+{
+    for (size_t i = 0; i != 10; ++i)
+        cout &lt;&lt; count_calls() &lt;&lt; endl;
+    return 0;
+}
+</code></pre><p>This program will print the numbers from 1 through 10 inclusive.</p>
+<p>这个程序会依次输出 1 到 10（包含 10）的整数。</p>
+<h2 id="7-6-内联函数"><a href="#7-6-内联函数" class="headerlink" title="7.6 内联函数"></a>7.6 内联函数</h2><p><code>调用函数比求解等价表达式要慢得多。</code>inline 函数避免函数调用的开销。将函数指定为 inline 函数，（通常）就是将它在程序中每个调用点上“内联地”展开。假设我们将 shorterString 定义为内联函数，则调用：</p>
+<pre><code>cout &lt;&lt; shorterString(s1, s2) &lt;&lt; endl;
+</code></pre><p>在编译时将展开为：</p>
+<pre><code>cout &lt;&lt; (s1.size() &lt; s2.size() ? s1 : s2)
+     &lt;&lt; endl;
+</code></pre><p><code>内联函数应该在头文件中定义，这一点不同于其他函数。</code></p>
+<h2 id="7-7-类的成员函数"><a href="#7-7-类的成员函数" class="headerlink" title="7.7 类的成员函数"></a>7.7 类的成员函数</h2><p>类的所有成员都必须在类定义的花括号里面声明，此后，就不能再为类增加任何成员。类的成员函数必须如声明的一般定义。类的成员函数既可以在类的定义内也可以在类的定义外定义。在类 Sales_item 中，这两种情况各有一例说明：函数 same_isbn 在类内定义，而函数 avg_price 则在类内声明，在类外定义。</p>
+<p><code>编译器隐式地将在类内定义的成员函数当作内联函数</code></p>
+<h3 id="this-指针的引入"><a href="#this-指针的引入" class="headerlink" title="this 指针的引入"></a>this 指针的引入</h3><p>每个成员函数（除了在第 12.6 节介绍的 static 成员函数外）都有一个额外的、隐含的形参 this。在调用成员函数时，形参 this 初始化为调用函数的对象的地址。</p>
+<h3 id="const-成员函数的引入"><a href="#const-成员函数的引入" class="headerlink" title="const 成员函数的引入"></a>const 成员函数的引入</h3><p>可以理解跟在 Sales_item 成员函数声明的形参表后面的 const 所起的作用了：const 改变了隐含的 this 形参的类型。在调用 total.same_isbn(trans) 时，隐含的 this 形参将是一个指向 total 对象的 const Sales_Item* 类型的指针。就像如下编写 same_isbn 的函数体一样：</p>
+<pre><code>// pseudo-code illustration of how the implicit this pointer is used
+// This code is illegal: We may not explicitly define the this pointer ourselves
+// Note that this is a pointer to const because same_isbn is a const member
+bool Sales_item::same_isbn(const Sales_item *const this,
+                          const Sales_item &amp;rhs) const
+{ return (this-&gt;isbn == rhs.isbn); }
+</code></pre><p>用这种方式使用 const 的函数称为<code>常量成员函数</code>。由于 this 是指向 const 对象的指针，const 成员函数不能修改调用该函数的对象。因此，函数 avg_price 和函数 same_isbn 只能读取而不能修改调用它们的对象的数据成员。</p>
+<p>在类的定义外面定义成员函数必须指明它们是类的成员：</p>
+<pre><code>double Sales_item::avg_price() const
+{
+    if (units_sold)
+        return revenue/units_sold;
+    else
+        return 0;
+}
+</code></pre><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>构造函数是特殊的成员函数，与其他成员函数不同，<code>构造函数和类同名，而且没有返回类型</code>。而与其他成员函数相同的是，构造函数也有形参表（可能为空）和函数体。一个类可以有多个构造函数，每个构造函数必须有与其他构造函数不同数目或类型的形参。</p>
+<p>和其他成员函数一样，构造函数也必须在类中声明，但是可以在类中或类外定义。由于我们的构造函数很简单，因此在类中定义它：</p>
+<pre><code>class Sales_item {
+public:
+    // operations on Sales_item objects
+    double avg_price() const;
+    bool same_isbn(const Sales_item &amp;rhs) const
+        { return isbn == rhs.isbn; }
+    // default constructor needed to initialize members of built-in type
+    Sales_item(): units_sold(0), revenue(0.0) { }
+// private members as before
+private:
+    std::string isbn;
+    unsigned units_sold;
+    double revenue;
+};
+</code></pre><p>在冒号和花括号之间的代码称为构造函数的初始化列表。构造函数的初始化列表为类的一个或多个数据成员指定初值。它跟在构造函数的形参表之后，以冒号开关。构造函数的初始化式是一系列成员名，每个成员后面是括在圆括号中的初始值。多个成员的初始化用逗号分隔。</p>
+<h2 id="重载函数"><a href="#重载函数" class="headerlink" title="重载函数"></a>重载函数</h2><p>出现在相同作用域中的两个函数，如果具有相同的名字而形参表不同，则称为重载函数。</p>
+<h2 id="7-9-函数指针"><a href="#7-9-函数指针" class="headerlink" title="7.9 函数指针"></a>7.9 函数指针</h2><p>函数指针是指指向函数而非指向对象的指针。像其他指针一样，函数指针也指向某个特定的类型。函数类型由其返回类型以及形参表确定，而与函数名无关：</p>
+<h1 id="8-标准IO库"><a href="#8-标准IO库" class="headerlink" title="8 标准IO库"></a>8 标准IO库</h1><p>IO 类型在三个独立的头文件中定义：iostream 定义读写控制窗口的类型，fstream 定义读写已命名文件的类型，而 sstream 所定义的类型则用于读写存储在内存中的 string 对象。在 fstream 和 sstream 里定义的每种类型都是从 iostream 头文件中定义的相关类型派生而来。</p>
+<h1 id="9顺序容器"><a href="#9顺序容器" class="headerlink" title="9顺序容器"></a>9顺序容器</h1><h1 id="10关联容器"><a href="#10关联容器" class="headerlink" title="10关联容器"></a>10关联容器</h1><h1 id="11泛型算法"><a href="#11泛型算法" class="headerlink" title="11泛型算法"></a>11泛型算法</h1><h1 id="12-类"><a href="#12-类" class="headerlink" title="12 类"></a>12 类</h1><h2 id="12-1-类的声明和定义"><a href="#12-1-类的声明和定义" class="headerlink" title="12.1 类的声明和定义"></a>12.1 类的声明和定义</h2><pre><code>class Sales_item {
+public:
+// operations on Sales_item objects
+double avg_price() const;
+bool same_isbn(const Sales_item &amp;rhs) const
+    { return isbn == rhs.isbn; }
+// default constructor needed to initialize members of built-in type
+Sales_item(): units_sold(0), revenue(0.0) { }
+private:
+std::string isbn;
+unsigned units_sold;
+double revenue;
+};
+double Sales_item::avg_price() const{
+if (units_sold)
+    return revenue/units_sold;
+else
+    return 0;
+    }
+</code></pre><p> <code>在 public 部分定义的成员可被使用该类型的所有代码访问；</code></p>
+<p><code>在 private 部分定义的成员可被其他类成员访问。</code></p>
+<p>所有成员<code>必须</code>在类的内部声明。</p>
+<p>构造函数一般就使用一个<code>构造函数初始化列表</code>，来初始化对象的数据成员：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Sales_item(): units_sold(0), revenue(0.0) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>在类内部，声明成员函数是必需的，而定义成员函数则是可选的。<code>在类内部定义的函数默认为 inline</code>。在类外部定义的成员函数必须指明它们是在类的作用域中。</p>
+<hr>
+<p>const 成员不能改变其所操作的对象的数据成员。const 必须同时出现在声明和定义中，若只出现在其中一处，就会出现一个编译时错误。</p>
+<p><code>在类的左花括号之后、第一个访问标号之前定义成员的访问级别，其值依赖于类是如何定义的</code>。如果类是用 struct 关键字定义的，则在第一个访问标号之前的成员是公有的；如果类是用 class 关键字是定义的，则这些成员是私有的。</p>
+<p>可以声明一个类而不定义它：</p>
+<pre><code>class Screen; // declaration of the Screen class
+</code></pre><p>这个声明，有时称为<code>前向声明（forward declaraton）</code>，在程序中引入了类类型的 Screen。在声明之后、定义之前，类 Screen 是一个<code>不完全类型（incompete type）</code>，即已知 Screen 是一个类型，但不知道包含哪些成员。</p>
+<p>除了定义数据和函数成员之外，类还可以定义自己的局部类型名字。如果为 std::string::size_type 提供一个<code>类型别名</code>，那么 Screen 类将是一个更好的抽象：</p>
+<pre><code>class Screen {
+public:
+    // interface member functions
+    typedef std::string::size_type index;
+private:
+    std::string contents;
+    index cursor;
+    index height, width;
+};
+</code></pre><p><code>在类内部定义的成员函数，例如不接受实参的 get 成员，将自动作为 inline 处理。也可以显式地将接受实参的成员函数定义为inline</code></p>
+<p>使用头文件保护符（header guard）（第 2.9.2 节），来保证即使头文件在同一文件中被包含多次，类定义也只出现一次。</p>
+<p>可以在类定义体内部指定一个成员为inline，作为其声明的一部分。或者，也可以在类定义外部的函数定义上指定 inline。在声明和定义处指定 inline 都是合法的。在类的外部定义 inline 的一个好处是可以使得类比较容易阅读。</p>
+<h2 id="12-2-隐含的this指针-※"><a href="#12-2-隐含的this指针-※" class="headerlink" title="12.2 隐含的this指针(※)"></a>12.2 隐含的this指针(※)</h2><p><code>成员函数具有一个附加的隐含形参，即指向该类对象的一个指针</code>。这个隐含形参命名为 this，与调用成员函数的对象绑定在一起。<code>成员函数不能定义 this 形参，而是由编译器隐含地定义。</code>成员函数的函数体可以显式使用 this 指针，但不是必须这么做。</p>
+<p>尽管在成员函数内部显式引用 this 通常是不必要的，但有一种情况下必须这样做：当我们需要将一个对象作为整体引用而不是引用对象的一个成员时。最常见的情况是在这样的函数中使用 this：该函数返回对调用该函数的对象的引用。</p>
+<p>在普通的非 const 成员函数中，<code>this 的类型是一个指向类类型的 const 指针</code>。可以改变 this 所指向的值，但不能改变 this 所保存的地址。在 const 成员函数中，this 的类型是一个指向 const 类类型对象的 const 指针。既不能改变 this 所指向的对象，也不能改变 this 所保存的地址。</p>
+<h3 id="可变数据成员"><a href="#可变数据成员" class="headerlink" title="可变数据成员"></a>可变数据成员</h3><p>有时（但不是很经常），我们希望类的数据成员可以修改（甚至是在 const 成员函数内）。这可以通过将它们声明为 <code>mutable</code> 来实现。</p>
+<p>可变数据成员（mutable data member）永远都不能为 const，甚至当它是 const 对象的成员时也如此。因此，const 成员函数可以改变 mutable 成员。要将数据成员声明为可变的，必须将关键字 mutable 放在成员声明之前</p>
+<h2 id="12-3-类作用域"><a href="#12-3-类作用域" class="headerlink" title="12.3 类作用域"></a>12.3 类作用域</h2><p>每个类都定义了自己的新作用域和唯一的类型。在类的定义体内声明类成员，将成员名引入类的作用域。</p>
+<h3 id="形参表和函数体处于类作用域中"><a href="#形参表和函数体处于类作用域中" class="headerlink" title="形参表和函数体处于类作用域中"></a>形参表和函数体处于类作用域中</h3><p>在定义于类外部的成员函数中，形参表和成员函数体都出现在成员名之后。这些都是在类作用域中定义，所以可以不用限定而引用其他成员。例如，类 Screen 中 get 的二形参版本的定义：</p>
+<pre><code>char Screen::get(index r, index c) const
+{
+    index row = r * width;      // compute the row location
+
+    return contents[row + c];   // offset by c to fetch specified character
+}
+</code></pre><p>该函数用 Screen 内定义的 index 类型来指定其形参类型。因为形参表是在 Screen 类的作用域内，所以不必指明我们想要的是 Screen::index。我们想要的是定义在当前类作用域中的，这是隐含的。同样，使用 index、width 和 contents 时指的都是 Screen 类中声明的名字。</p>
+<h3 id="函数返回类型不一定在类作用域中"><a href="#函数返回类型不一定在类作用域中" class="headerlink" title="函数返回类型不一定在类作用域中"></a>函数返回类型不一定在类作用域中</h3><p>与形参类型相比，返回类型出现在成员名字前面。如果函数在类定义体之外定义，则用于返回类型的名字在类作用域之外。如果返回类型使用由类定义的类型，则必须使用完全限定名。例如，考虑 get_cursor 函数：</p>
+<pre><code>class Screen {
+public:
+    typedef std::string::size_type index;
+    index get_cursor() const;
+};
+inline Screen::index Screen::get_cursor() const
+{
+    return cursor;
+}
+</code></pre><p>该函数的返回类型是 index，这是在 Screen 类内部定义的一个类型名。如果在类定义体之外定义 get_cursor，则在函数名被处理之前，代码在不在类作用域内。当看到返回类型时，其名字是在类作用域之外使用。必须用完全限定的类型名 Screen::index 来指定所需要的 index 是在类 Screen 中定义的名字。</p>
+<h2 id="12-4-构造函数"><a href="#12-4-构造函数" class="headerlink" title="12.4 构造函数"></a>12.4 构造函数</h2><p>构造函数的名字与类的名字相同，并且不能指定返回类型。像其他任何函数一样，它们可以没有形参，也可以定义多个形参。</p>
+<p>构造函数不能声明为 const 。</p>
+<p>有些成员必须在构造函数初始化列表中进行初始化。对于这样的成员，在构造函数函数体中对它们赋值不起作用。没有默认构造函数的类类型的成员，以及 const 或引用类型的成员，不管是哪种类型，都必须在构造函数初始化列表中进行初始化。</p>
+<p>必须对任何 const 或引用类型成员以及没有默认构造函数的类类型的任何成员使用初始化式。</p>
+<p>构造函数初始化列表仅指定用于初始化成员的值，并不指定这些初始化执行的次序。<code>成员被初始化的次序就是定义成员的次序</code>。第一个成员首先被初始化，然后是第二个，依次类推。</p>
+<p>初始化的次序常常无关紧要。然而，如果一个成员是根据其他成员而初始化，则成员初始化的次序是至关重要的。</p>
+<p>考虑下面的类：</p>
+<pre><code>class X {
+    int i;
+    int j;
+public:
+    // run-time error: i is initialized before j
+    X(int val): j(val), i(j) { }
+};
+</code></pre><p>在这种情况下，构造函数初始化列表看起来似乎是用val 初始化 j，然后再用 j 来初始化 i。然而，i 首先被初始化。这个初始化列表的效果是用尚未初始化的 j 值来初始化 i！如果数据成员在构造函数初始化列表中的列出次序与成员被声明的次序不同，那么有的编译器非常友好，会给出一个警告。</p>
+<p>一个类哪怕只定义了一个构造函数，编译器也不会再生成默认构造函数。<code>只有当一个类没有定义构造函数时，编译器才会自动生成一个默认构造函数。</code></p>
+<p>合成的默认构造函数（synthesized default constructor）使用与变量初始化相同的规则来初始化成员。具有类类型的成员通过运行各自的默认构造函数来进行初始化。<code>内置和复合类型的成员，如指针和数组，只对定义在全局作用域中的对象才初始化。当对象定义在局部作用域中时，内置或复合类型的成员不进行初始化。</code></p>
+<h2 id="12-5友元"><a href="#12-5友元" class="headerlink" title="12.5友元"></a>12.5友元</h2><p>友元机制允许一个类将对其非公有成员的访问权授予指定的函数或类。友元的声明以关键字 friend 开始。它只能出现在类定义的内部。友元声明可以出现在类中的任何地方：友元不是授予友元关系的那个类的成员，所以它们不受声明出现部分的访问控制影响。</p>
+<p>友元可以是普通的非成员函数，或前面定义的其他类的成员函数，或整个类。将一个类设为友元，友元类的所有成员函数都可以访问授予友元关系的那个类的非公有成员。</p>
+<p>如果不是将整个 Window_Mgr 类设为友元，Screen 就可以指定只允许 relocate 成员访问：</p>
+<pre><code>class Screen {
+    // Window_Mgrmust be defined before class Screen
+    friend Window_Mgr&amp;
+        Window_Mgr::relocate(Window_Mgr::index,
+                             Window_Mgr::index,
+                             Screen&amp;);
+    // ...restofthe Screen class
+};
+</code></pre><p>当我们将成员函数声明为友元时，函数名必须用该函数所属的类名字加以限定。</p>
+<h2 id="12-6-static类成员"><a href="#12-6-static类成员" class="headerlink" title="12.6 static类成员"></a>12.6 static类成员</h2><p>通常，非 static 数据成员存在于类类型的每个对象中。不像普通的数据成员，static 数据成员独立于该类的任意对象而存在；每个 static 数据成员是与类关联的对象，并不与该类的对象相关联。</p>
+<p>类也可以定义 static 成员函数。<code>static 成员函数没有 this 形参，它可以直接访问所属类的 static 成员，但不能直接使用非 static 成员。</code></p>
+<p>因为 static 成员不是任何对象的组成部分，所以 static 成员函数不能被声明为 const。毕竟，将成员函数声明为 const 就是承诺不会修改该函数所属的对象。最后，static 成员函数也不能被声明为虚函数。</p>
+<p>static 数据成员必须在类定义体的外部定义（正好一次）。不像普通数据成员，static 成员不是通过类构造函数进行初始化，而是应该在定义时进行初始化。</p>
+<p>static 关键字只能用于类定义体内部的声明中，定义不能标示为 static。</p>
+<p>static 数据成员的类型可以是该成员所属的类类型。<code>非 static 成员被限定声明为其自身类对象的指针或引用</code>：</p>
+<pre><code>class Bar {
+public:
+    // ...
+private:
+    static Bar mem1; // ok
+    Bar *mem2;       // ok
+    Bar mem3;        // error
+};
+</code></pre><p>类似地，static 数据成员可用作默认实参：</p>
+<pre><code>class Screen {
+public:
+    // bkground refers to the static member
+    // declared later in the class definition
+    Screen&amp; clear(char = bkground);
+private:
+    static const char bkground = &apos;#&apos;;
+};
+</code></pre><p>非 static 数据成员不能用作默认实参，因为它的值不能独立于所属的对象而使用。使用非 static 数据成员作默认实参，将无法提供对象以获取该成员的值，因而是错误的。</p>
+<p><span style="color:red">xx</span></p>
+
+            </div>
+            <hr>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2016/08/16/环境配置/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="开发环境配置">
+                        
+                        <span class="card-title">开发环境配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">JDK安装完JDK后配置环境变量  计算机→属性→高级系统设置→高级→环境变量
+
+系统变量→新建 JAVA_HOME 变量 。变量值填写jdk的安装目录（本人是 E:\Java\jdk1.7.0)
+系统变量→寻找 Path 变量→编辑，在变</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2016-08-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具书/" class="post-category" target="_blank">
+                                    工具书
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2016/07/31/你不懂我我不怪你/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="你不懂我,我不怪你">
+                        
+                        <span class="card-title">你不懂我,我不怪你</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">每个人都有一个死角自己走不出来，别人也闯不进去。我把最深沉的秘密放在那里。你不懂我，我不怪你。每个人都有一道伤口，或深或浅，盖上布，以为不存在。我把最殷红的鲜血涂在那里。你不懂我，我不怪你。每个人都有一场爱恋，用心、用情、用力，感动也感伤。</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2016-07-31
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/小世界/" class="post-category" target="_blank">
+                                    小世界
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/小诗/" target="_blank">
+                        <span class="chip bg-color">小诗</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Alvin
+
+            
+
+            
+			
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+</body>
+</html>
